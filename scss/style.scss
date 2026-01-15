@@ -1,0 +1,25 @@
+@use "sass:math";
+@use "_fonts.scss";
+@use "_icons.scss";
+@use "_reset.scss";
+@use "mixins.scss";
+
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 500;
+}
+
+.wrapper {
+    position: relative;
+    min-height: 100%;
+    overflow: clip;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper > main {
+    flex-grow: 1;
+}
+

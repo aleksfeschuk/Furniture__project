@@ -1,0 +1,116 @@
+@font-face {
+  font-family: "Lato", sans-serif;
+  src: url(../fonts/lato-medium.woff2);
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lato", sans-serif;
+  src: url(../fonts/lato-bold.woff2);
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lato", sans-serif;
+  src: url(../fonts/lato-bold-italic.woff2);
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lato", sans-serif;
+  src: url(../fonts/lato-heavy.woff2);
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "icons";
+  src: url("../fonts/icons.woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+[class*="--icon-"]::before {
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
+[class*="--icon-s-twitter"]::before {
+  content: "\f000";
+}
+
+[class*="--icon-s-star"]::before {
+  content: "\f001";
+}
+
+[class*="--icon-s-pinterest"]::before {
+  content: "\f002";
+}
+
+[class*="--icon-s-instagram"]::before {
+  content: "\f003";
+}
+
+[class*="--icon-s-shevron"]::before {
+  content: "\f004";
+}
+
+[class*="--icon-s-facebook"]::before {
+  content: "\f005";
+}
+
+[class*="--icon-s-arrow"]::before {
+  content: "\f006";
+}
+
+[class*="--icon-s-search"]::before {
+  content: "\f007";
+}
+
+[class*="--icon-s-plus"]::before {
+  content: "\f008";
+}
+
+[class*="--icon-s-minus"]::before {
+  content: "\f009";
+}
+
+[class*="--icon-s-list"]::before {
+  content: "\f00a";
+}
+
+[class*="--icon-s-grid"]::before {
+  content: "\f00b";
+}
+
+[class*="--icon-s-favorite"]::before {
+  content: "\f00c";
+}
+
+[class*="--icon-s-cart"]::before {
+  content: "\f00d";
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+}
+
+.wrapper {
+  position: relative;
+  min-height: 100%;
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper > main {
+  flex-grow: 1;
+}/*# sourceMappingURL=style.css.map */
