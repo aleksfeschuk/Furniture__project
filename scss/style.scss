@@ -1,25 +1,37 @@
 @use "sass:math";
-@use "_fonts.scss";
-@use "_icons.scss";
+// Скидання стилів
 @use "_reset.scss";
-@use "mixins.scss";
-
+// Шрифти
+@use "_fonts.scss";
+// Іконки
+@use "_icons.scss";
+// Міксіни
+@use "_mixins.scss" as *;
+// Кольори
+// @use "_colors.scss" as *;
+@use "colors.css";
+// Типографія
+@use "_typo.scss" as *;
+// Компоненти
+@use "_components.scss" as *;
 
 body {
-    font-family: "Lato", sans-serif;
-    font-weight: 500;
+	font-family: "Lato", sans-serif;
+	font-weight: 500;
+	color: var(--black-1);
 }
-
 .wrapper {
-    position: relative;
-    min-height: 100%;
-    overflow: clip;
-
-    display: flex;
-    flex-direction: column;
+	position: relative;
+	min-height: 100%;
+	overflow: clip;
+	display: flex;
+	flex-direction: column;
 }
-
 .wrapper > main {
-    flex-grow: 1;
+	flex-grow: 1;
 }
-
+[class*="__container"] {
+	padding-inline: toRem(15);
+	max-width: 1422px;
+	margin: 0 auto;
+}

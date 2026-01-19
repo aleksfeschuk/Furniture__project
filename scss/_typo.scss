@@ -1,0 +1,28 @@
+// Міксіни
+@use "_mixins.scss" as *;
+
+@mixin typo($type: "h1", $weight: 500) {
+	@if $type == "h1" {
+		// font-size: toRem(32);
+		@include adaptiveValue("font-size", 32, 24);
+		line-height: 1.25;
+		font-weight: 800;
+		text-transform: uppercase;
+	} @else if $type == "h2-24" {
+		font-size: toRem(24);
+		line-height: 1.5;
+		font-weight: 800;
+		text-transform: uppercase;
+	} @else if $type == "h2-20" {
+		font-size: toRem(20);
+		line-height: 1.4;
+		font-weight: 800;
+		text-transform: uppercase;
+	} @else if $type == "h4" {
+		font-size: toRem(14);
+		line-height: 1.42;
+		font-weight: $weight;
+	} @else {
+		line-height: 1.25;
+	}
+}

@@ -1,106 +1,295 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+html,
+body {
+  line-height: 1;
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+textarea,
+input {
+  width: 100%;
+  font-weight: inherit;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+label {
+  display: inline-block;
+}
+
+button {
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: transparent;
+}
+
+button,
+input[type=checkbox],
+input[type=radio] {
+  cursor: pointer;
+}
+
 @font-face {
   font-family: "Lato", sans-serif;
-  src: url(../fonts/lato-medium.woff2);
+  src: url("../fonts/lato-medium.woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Lato", sans-serif;
-  src: url(../fonts/lato-bold.woff2);
+  src: url("../fonts/lato-bold.ttf");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Lato", sans-serif;
-  src: url(../fonts/lato-bold-italic.woff2);
+  src: url("../fonts/lato-bold-italic.woff2");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Lato", sans-serif;
-  src: url(../fonts/lato-heavy.woff2);
+  src: url("../fonts/lato-heavy.woff2");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "icons";
-  src: url("../fonts/icons.woff2");
+  src: url("../fonts/icons.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 [class*="--icon-"]::before {
-  font-family: "icons";
+  font-family: "icons" !important;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-[class*="--icon-s-twitter"]::before {
-  content: "\f000";
+[class*="--icon-cart"]::before {
+  content: "\e900";
 }
 
-[class*="--icon-s-star"]::before {
-  content: "\f001";
+[class*="--icon-favorite"]::before {
+  content: "\e901";
 }
 
-[class*="--icon-s-pinterest"]::before {
-  content: "\f002";
+[class*="--icon-grid"]::before {
+  content: "\e902";
 }
 
-[class*="--icon-s-instagram"]::before {
-  content: "\f003";
+[class*="--icon-list"]::before {
+  content: "\e903";
 }
 
-[class*="--icon-s-shevron"]::before {
-  content: "\f004";
+[class*="--icon-minus"]::before {
+  content: "\e904";
 }
 
-[class*="--icon-s-facebook"]::before {
-  content: "\f005";
+[class*="--icon-plus"]::before {
+  content: "\e905";
 }
 
-[class*="--icon-s-arrow"]::before {
-  content: "\f006";
+[class*="--icon-search"]::before {
+  content: "\e906";
 }
 
-[class*="--icon-s-search"]::before {
-  content: "\f007";
+[class*="--icon-select-arrow"]::before {
+  content: "\e907";
 }
 
-[class*="--icon-s-plus"]::before {
-  content: "\f008";
+[class*="--icon-facebook"]::before {
+  content: "\e908";
 }
 
-[class*="--icon-s-minus"]::before {
-  content: "\f009";
+[class*="--icon-shevron"]::before {
+  content: "\e909";
 }
 
-[class*="--icon-s-list"]::before {
-  content: "\f00a";
+[class*="--icon-instagram"]::before {
+  content: "\e90a";
 }
 
-[class*="--icon-s-grid"]::before {
-  content: "\f00b";
+[class*="--icon-pinterest"]::before {
+  content: "\e90b";
 }
 
-[class*="--icon-s-favorite"]::before {
-  content: "\f00c";
+[class*="--icon-star"]::before {
+  content: "\e90c";
 }
 
-[class*="--icon-s-cart"]::before {
-  content: "\f00d";
+[class*="--icon-twitter"]::before {
+  content: "\e90d";
+}
+
+:root {
+  --black-1: #2f302c;
+  --black-2: #6a6a6a;
+  --black-3: #7e7f7c;
+  --black-4: #aaaaaa;
+  --black-5: #d4d4d4;
+  --black-6: #e8e8e8;
+  --black-7: #f6f6f6;
+  --black-8: #ffffff;
+}
+
+.title {
+  line-height: 1.25;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+@media (min-width: 88.875em) {
+  .title {
+    font-size: 32px;
+  }
+}
+@media (min-width: 20em) and (max-width: 88.875em) {
+  .title {
+    font-size: clamp( 24px , 21.6769509982px  +  0.7259528131vw , 32px );
+  }
+}
+@media (max-width: 20em) {
+  .title {
+    font-size: 24px;
+  }
+}
+.title--center {
+  text-align: center;
+}
+
+.items {
+  display: grid;
+  gap: 2.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(23.75rem, 100%), 1fr));
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.item__link {
+  aspect-ratio: 440/574;
+  background-color: var(--black-7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item__link--top {
+  align-items: flex-start;
+}
+.item__link--bottom {
+  align-items: flex-end;
+}
+.item__link--bottom-left {
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.item__link--bottom-right {
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.item__link--top-left {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.item__link--top-right {
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.item__link--left {
+  justify-content: flex-start;
+}
+.item__link--right {
+  justify-content: flex-end;
+}
+.item__image {
+  flex-grow: 0;
+}
+.item__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.item__title {
+  text-transform: uppercase;
+}
+html:not([data-fls-touch]) .item__link-title:hover {
+  text-decoration: underline;
+}
+.item__price {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.rating__item {
+  font-size: 11px;
 }
 
 body {
   font-family: "Lato", sans-serif;
   font-weight: 500;
+  color: var(--black-1);
 }
 
 .wrapper {
@@ -113,4 +302,10 @@ body {
 
 .wrapper > main {
   flex-grow: 1;
+}
+
+[class*=__container] {
+  padding-inline: 0.9375rem;
+  max-width: 1422px;
+  margin: 0 auto;
 }/*# sourceMappingURL=style.css.map */

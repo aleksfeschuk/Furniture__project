@@ -1,0 +1,99 @@
+// Міксіни
+@use "_mixins.scss" as *;
+// Типографія
+@use "_typo.scss" as *;
+
+.title {
+	@include typo("h1");
+	&--center {
+		text-align: center;
+	}
+}
+
+.items {
+	display: grid;
+	gap: toRem(36);
+	grid-template-columns: repeat(auto-fill, minmax(min(toRem(380), 100%), 1fr));
+}
+// Картка каталогу
+.item {
+	display: flex;
+	flex-direction: column;
+	gap: toRem(32);
+	// .item__link
+	&__link {
+		aspect-ratio: 440 / 574;
+		background-color: var(--black-7);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&--top {
+			align-items: flex-start;
+		}
+		&--bottom {
+			align-items: flex-end;
+		}
+		&--bottom-left {
+			align-items: flex-end;
+			justify-content: flex-start;
+		}
+		&--bottom-right {
+			align-items: flex-end;
+			justify-content: flex-end;
+		}
+		&--top-left {
+			align-items: flex-start;
+			justify-content: flex-start;
+		}
+		&--top-right {
+			align-items: flex-start;
+			justify-content: flex-end;
+		}
+		&--left {
+			justify-content: flex-start;
+		}
+		&--right {
+			justify-content: flex-end;
+		}
+	}
+	&__image {
+		flex-grow: 0;
+	}
+	// .item__body
+	&__body {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: toRem(12);
+	}
+	// .item__title
+	&__title {
+		text-transform: uppercase;
+	}
+	// .item__link-title
+	&__link-title {
+		html:not([data-fls-touch]) & {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	// .item__rating
+	&__rating {
+	}
+	// .item__price
+	&__price {
+		@include typo("h2-20");
+	}
+}
+// Рейтинг
+.rating {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: toRem(8);
+	// .rating__item
+	&__item {
+		font-size: 11px;
+	}
+}
