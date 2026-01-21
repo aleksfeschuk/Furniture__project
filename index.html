@@ -9,7 +9,7 @@
 		<!-- Налаштування в'юпорту (адаптиву, масштабу тощо) -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--Підключення окремого файлу стилів -->
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="./scss/style.css">
 		<!-- Заголовок сторінки в браузері (вкладці) -->
 		<title>Home Page</title>
 		<!-- Відкрити усі вкладки в новій вкладці -->
@@ -18,6 +18,54 @@
 	<body>
 		<div class="wrapper">
 			<header class="header">
+				<div class="header__container">
+					<img src="./images/logo.svg" alt="Image" class="header__logo">
+					<form action="#" class="header__search search-header search-header--icon-search">
+						<input placeholder="Search something" type="search" class="search-header__input">
+					</form>
+					<div class="header__menu menu">
+						<button type="button" data-fls-menu class="menu__icon  icon-menu"><span></span></button>
+						<nav class="menu__body">
+							<ul class="menu__list">
+								<li class="menu__item"><a href="#" class="menu__link">HOME</a></li>
+							</ul>
+							<ul class="menu__list">
+								<li class="menu__item">
+									<a href="#" class="menu__link">SHOP</a>
+									<button class="menu__sub-link menu__sub-link--icon-shevron"></button>
+									<ul class="sub-menu">
+										<li class="sub-menu__item">
+											<a href="#" class="sub-menu__link">Chair</a>
+										</li>
+										<li class="sub-menu__item">
+											<a href="#" class="sub-menu__link">Sofa</a>
+										</li>
+										<li class="sub-menu__item">
+											<a href="#" class="sub-menu__link">Couch</a>
+										</li>
+										<li class="sub-menu__item">
+											<a href="#" class="sub-menu__link">Desk</a>
+										</li>
+										<li class="sub-menu__item">
+											<a href="#" class="sub-menu__link">Lamp</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<ul class="menu__list">
+								<li class="menu__item"><a href="#" class="menu__link">BLOG</a></li>
+							</ul>
+							<ul class="menu__list">
+								<li class="menu__item"><a href="#" class="menu__link">ABOUT US</a></li>
+							</ul>
+						</nav>
+					</div>
+					<div class="header__action action-header">
+						<a href="#" class="action-header__link action-header__link--icon-favorite">LOVE</a>
+						<a href="#" class="action-header__link action-header__link--icon-cart">CART</a>
+
+					</div>
+				</div>
 			</header>
 			<main class="page">
 			</main>

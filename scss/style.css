@@ -286,6 +286,51 @@ html:not([data-fls-touch]) .item__link-title:hover {
   font-size: 11px;
 }
 
+.header__container {
+  display: flex;
+  align-items: center;
+  min-height: 10.25rem;
+}
+@media (min-width: 88.875em) {
+  .header__container {
+    gap: 80px;
+  }
+}
+@media (min-width: 20em) and (max-width: 88.875em) {
+  .header__container {
+    gap: clamp( 20px , 2.5771324864px  +  5.444646098vw , 80px );
+  }
+}
+@media (max-width: 20em) {
+  .header__container {
+    gap: 20px;
+  }
+}
+.header__menu {
+  flex-grow: 1;
+}
+.search-header {
+  position: relative;
+  height: 2.75rem;
+  border-bottom: 0.0625rem solid var(--black-5);
+}
+.search-header::before {
+  position: absolute;
+  left: 0.125rem;
+  top: 50%;
+  translate: 0 -50%;
+}
+.search-header__input {
+  padding-left: 2rem;
+  height: 2.6875rem;
+}
+.search-header__input::-moz-placeholder {
+  color: var(--black-3);
+}
+.search-header__input::placeholder {
+  color: var(--black-3);
+}
+
 body {
   font-family: "Lato", sans-serif;
   font-weight: 500;

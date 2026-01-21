@@ -1,0 +1,105 @@
+@use "_mixins.scss" as *;
+
+@use "_typo" as *;
+
+.header {
+    
+    &__container {
+        display: flex;
+        align-items: center;
+        min-height: toRem(164);
+        @include adaptiveValue("gap", 80, 20);
+    }
+
+    &__logo {
+    
+    }
+
+    &__search {
+    
+    }
+
+    &__menu {
+        flex-grow: 1;
+    }
+
+    &__action {
+
+    }
+
+}
+
+
+.search-header {
+    position: relative;
+    height: toRem(44);
+
+    border-bottom: toRem(1) solid var(--black-5);
+    &::before {
+        position: absolute;
+        left: toRem(2);
+        top: 50%;
+        translate: 0 -50%;
+    }
+
+    &__input {
+        padding-left: toRem(32);
+        height: toRem(43);
+        &::placeholder {
+            color: var(--black-3);
+        }
+    }
+}
+
+.menu {
+    &__icon {
+    
+    }
+
+    &__body {
+    
+    }
+
+    &__list {
+    
+    }
+
+    &__item {
+    
+    }
+
+    &__link {
+    
+    }
+
+    &__sub-link {
+        &--icon-shevron {
+
+        }
+    }
+}
+
+.icon-menu {
+
+}
+
+.sub-menu {
+    &__item {
+
+    }
+
+    &__link {
+
+    }
+}
+
+.action-header {
+    &__link {
+        &--icon-favorite {
+
+        }
+        &--icon-cart {
+
+        }
+    }
+}
