@@ -22,7 +22,7 @@ function load() {
 		if (isMobile.any()) {
 			if (targetElement.closest('.menu__sub-link')) {
 			const currentElement = targetElement.closest('.menu__sub-link')
-			document.documentElement.setAttribute.toggleAttribute('data-sub-menu-open')
+			document.documentElement.toggleAttribute('data-sub-menu-open')
 			} else {
 				document.documentElement.removeAttribute('data-sub-menu-open')
 			}

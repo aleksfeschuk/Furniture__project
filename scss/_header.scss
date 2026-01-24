@@ -9,14 +9,28 @@
     &__container {
         display: flex;
         align-items: center;
-        min-height: toRem(164);
         padding-block: toRem(10);
-        @include adaptiveValue("min-height", 164, 70);
+        @include adaptiveValue("min-height", 164, 70, 0, 1392, 670);
         @include adaptiveValue("gap", 80, 20, 0, 1392, 768);
     }
 
+
+    // header__logo
     &__logo {
-    
+        position: relative;
+        z-index: 5;
+        flex-shrink: 0;
+        flex-basis: toRem(152);
+        overflow: hidden;
+        @media (width < toEm(992)) {
+            flex-basis: toRem(28);
+        }
+    }
+
+    // header__image-logo
+    &__image-logo {
+        max-width: none;
+        width: toRem(152);
     }
 
     &__search {
@@ -25,6 +39,34 @@
 
     &__menu {
         flex-grow: 1;
+        @media (width <= toEm(670)) {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 100%;
+            transition: left 0.3s;
+            background-color: var(--black-4);
+            padding: toRem(100) toRem(15) toRem(30) toRem(15);
+            overflow: auto;
+            &::before {
+                content: '';
+                width: 100%;
+                height: toRem(70);
+                background-color: var(--black-8);
+                position: fixed;
+                top: 0;
+                left: 100%;
+                transition: left 0.3s;
+                z-index: 3;
+            }
+            [data-menu-open] & {
+				left: 0;
+				&::before {
+					left: 0;
+				}
+			}
+        }
     }
 
     &__action {
@@ -36,17 +78,30 @@
 
 .search-header {
     flex-shrink: 0;
-    flex-basis: max (18.965517%, toRem(180));
     position: relative;
+    z-index: 5;
     border-bottom: toRem(1) solid var(--black-5);
+    @media (width > toEm(670)) {
+        flex-basis: max (18.965517%, toRem(180));
+    }
+    @media (width <= toEm(670)) {
+        flex-grow: 1;
+        flex-basis: (100);
+    }
     &::before {
         position: absolute;
         left: toRem(2);
         top: 50%;
         translate: 0 -50%;
+        @media (width <= toEm(370)) {
+            display: none;
+        }
     }
 
     &__input {
+        @media (width > toEm(370)) {
+            padding-left: toRem(32);
+        }
         padding-left: toRem(32);
         height: toRem(43);
         &::placeholder {
@@ -57,7 +112,18 @@
                 opacity: 0;
             }
         }
+
+        @media (width > toEm(370)) {
+            &::-webkit-search-decoration,
+            &::-webkit-search-cancel-button,
+            &::-webkit-search-results-button,
+            &::-webkit-search-results-decoration {
+                display: none;
+            }
+        }
     }
+
+
 }
 
 .menu {
@@ -72,13 +138,22 @@
     &__list {
         display: flex;
         flex-wrap: wrap;
-        @include adaptiveValue("column-gap", 44, 10); 
-        row-gap: toRem(5)
+        @include adaptiveValue("column-gap", 44, 20, 0, 1392, 768); 
+        row-gap: toRem(5);
+
+        @media (width <= toEm(670)) {
+            flex-direction: column;
+            
+            row-gap: toRem(20);
+        }
     }
 
     //menu__item
     &__item {
         position: relative;
+        display: flex;
+        align-items: center;
+        gap: toRem(5);
         html:not([data-fls-touch]) & {
             &:hover {
                 .menu__link {
@@ -95,65 +170,125 @@
                 }
             }
         }
+        @media (width <= toEm(670)) {
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
     }
 
     &__link {
         @extend .link-bold;
+        @media (width <= toEm(670)) {
+            @include typo('h2-24')
+        }
     }
 
     &__sub-link {
         rotate: 90deg;
         transition: rotate 0.3s;
-        translate: 0 toRem(-3);
-        font-size: toRem(10);
+        translate: 0 toRem(-1);
+        @media (width > toEm(670)) {
+            font-size: toRem(10);
+        }
         html:not([data-fls-touch]) & {
             cursor: default;
         }
         [data-sub-menu-open] & {
             rotate: -90deg;
         }
+        
     }
 }
 
 .icon-menu {
-    display: none;
+    @media (width > toEm(670)) {
+        display: none;
+    }
+
+    @media (width <= toEm(670)) {
+        flex-basis: toRem(30);
+        height: toRem(18);
+        flex-shrink: 0;
+        position: relative;
+        span,
+        &::before, 
+        &::after {
+            content: '';
+            position: absolute;
+            position: toRem(2);
+            left: 0;
+            width: 100%;
+            background-color: var(--black-1);
+        }
+        &::before {
+            top: 0;
+        }
+        &::after {
+            bottom: 0;
+        }
+        span {
+            top: 50%;
+            translate: 0 50%; 
+        }
+    }
 }
 
 .sub-menu {
-    position: absolute;
-    left: 0;
-    top: 100%;
-    width: toRem(200);
-    padding-top: toRem(10);
-    opacity: 0;
-    visibility: hidden;
-    translate: 0 toRem(10);
-    transition: all 0.3s;
-    pointer-events: none;
-
-
-    [data-sub-menu-open] & {
-        pointer-events: all;
-        opacity: 1;
-        visibility: visible;
-        translate: 0 0;
+    @media (width <= toEm(670)) {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: toRem(200);
+        padding-top: toRem(10);
+        translate: 0 toRem(10);
+        transition: all 0.3s;
+        pointer-events: none;
+        [data-sub-menu-open] & {
+            pointer-events: all;
+            opacity: 1;
+            visibility: visible;
+            translate: 0 0;
+        }
     }
+
+    @media (width <= toEm(670)) {
+        flex-grow: 1; 
+        flex-basis: 100%;
+        overflow: hidden;
+        transition: all 0.3s;
+    }
+
+    
     //sub-menu list
     &__list {
+        display: flex;
+        flex-direction: column;
         padding: toRem(15);
         border-radius: toRem(5);
         background-color: var(--black-8);
         box-shadow: 0 0 toRem(4) var(--black-1);
+        row-gap: toRem(5);
+        @media (width <= toEm(670)) {
+            row-gap: toRem(15);
+            // align-items: flex-end;
+        }
     }
 
     &__item {
-        &:not(:last-child) {
-            margin-bottom: toRem(5);
-        }
+        // &:not(:last-child) {
+        //     margin-bottom: toRem(5);
+           
+        // }
     }
 
     &__link {
         @include typo("");
+        @media (width <= toEm(670)) {
+            @include typo("h2-20");
+        }
         html:not([data-fls-touch]) & {
             &:hover {
                 text-decoration: underline;
@@ -163,9 +298,13 @@
 }
 
 .action-header {
+    position: relative;
+    z-index: 5;
     display: flex;
     align-items: center;
-    @include adaptiveValue("gap", 46, 10);
+    @include adaptiveValue("gap", 46, 10, 0, 1392, 768 );
+    @include adaptiveValue("gap", 20, 10, 2 , 768, 320 );
+
     &__link {
         @extend .link-bold;
         display: flex;
@@ -179,6 +318,19 @@
                 }
             }
         }
+        @media (width < toEm(768)) {
+            &::before {
+                @include typo("h2-20");
+            }
+
+            span {
+                display: none;
+            }
+        }
+    }
+
+    &__menu-icon {
+
     }
 }
 
