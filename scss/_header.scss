@@ -20,7 +20,7 @@
     }
 
     &__search {
-    
+        
     }
 
     &__menu {
@@ -36,10 +36,8 @@
 
 .search-header {
     flex-shrink: 0;
-    flex-basis: max (19%, toRem(180));
+    flex-basis: max (18.965517%, toRem(180));
     position: relative;
-    height: toRem(44);
-
     border-bottom: toRem(1) solid var(--black-5);
     &::before {
         position: absolute;
@@ -100,21 +98,7 @@
     }
 
     &__link {
-        @include typo('', 700);
-        position: relative;
-        text-transform: uppercase;
-        &::after {
-            content: '';
-            width: 0%;
-            transition: 
-                width 0.3s,
-                left 0.3s;
-            height: toRem(2);
-            background-color: var(--black-1);
-            position: absolute;
-            top: 100%;
-            left: 50%;
-        }
+        @extend .link-bold;
     }
 
     &__sub-link {
