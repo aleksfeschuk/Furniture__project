@@ -12,4 +12,23 @@ function load() {
 		if (isMobile.any()) document.documentElement.setAttribute('data-fls-touch', '')
 	}
 	addTouchAttr()
+
+	document.addEventListener('click', documentActions)
+
+	function documentActions(e) {
+		
+		const targetElement = e.target
+
+		if (isMobile.any()) {
+			if (targetElement.closest('.menu__sub-link')) {
+			const currentElement = targetElement.closest('.menu__sub-link')
+			document.documentElement.setAttribute.toggleAttribute('data-sub-menu-open')
+			} else {
+				document.documentElement.removeAttribute('data-sub-menu-open')
+			}
+		} 
+		
+		
+	}
+
 }

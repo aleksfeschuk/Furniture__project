@@ -24,5 +24,6 @@
 		font-weight: $weight;
 	} @else {
 		line-height: 1.25;
+		font-weight: $weight;
 	}
 }
