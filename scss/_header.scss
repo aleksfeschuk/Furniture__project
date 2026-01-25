@@ -4,7 +4,7 @@
 
 @use "_components.scss" as *;
 
-.header {
+.header { 
     
     &__container {
         display: flex;
@@ -84,10 +84,12 @@
     @media (width > toEm(670)) {
         flex-basis: max (18.965517%, toRem(180));
     }
+
     @media (width <= toEm(670)) {
         flex-grow: 1;
-        flex-basis: (100);
+        flex-basis: toRem(100);
     }
+
     &::before {
         position: absolute;
         left: toRem(2);
@@ -102,7 +104,6 @@
         @media (width > toEm(370)) {
             padding-left: toRem(32);
         }
-        padding-left: toRem(32);
         height: toRem(43);
         &::placeholder {
             color: var(--black-3);
@@ -112,8 +113,7 @@
                 opacity: 0;
             }
         }
-
-        @media (width > toEm(370)) {
+        @media (width <= toEm(370)) {
             &::-webkit-search-decoration,
             &::-webkit-search-cancel-button,
             &::-webkit-search-results-button,
@@ -143,7 +143,6 @@
 
         @media (width <= toEm(670)) {
             flex-direction: column;
-            
             row-gap: toRem(20);
         }
     }
@@ -216,9 +215,10 @@
         &::after {
             content: '';
             position: absolute;
-            position: toRem(2);
-            left: 0;
+            height: toRem(2);
+            right: 0;
             width: 100%;
+            transition: all 0.3s ;
             background-color: var(--black-1);
         }
         &::before {
@@ -229,13 +229,28 @@
         }
         span {
             top: 50%;
-            translate: 0 50%; 
+            translate: 0 -50%; 
+        }
+        [data-menu-open] & {
+            span {
+                width: 0; 
+            }
+            &::before {
+                rotate: -45deg;
+                top: 50%;
+                translate: 0 -50%;
+            }
+            &::after {
+                rotate: 45deg; 
+                bottom: 50%;
+                translate: 0 50%;
+            }
         }
     }
 }
 
 .sub-menu {
-    @media (width <= toEm(670)) {
+    @media (width > toEm(670)) {
         opacity: 0;
         visibility: hidden;
         position: absolute;
@@ -310,7 +325,7 @@
         display: flex;
         align-items: center;
         gap: toRem(7);
-        html:not([data-flx-touch]) & {
+        html:not([data-fls-touch]) & {
             &:hover {
                 span::after {
                     left: 0;
@@ -322,7 +337,6 @@
             &::before {
                 @include typo("h2-20");
             }
-
             span {
                 display: none;
             }
