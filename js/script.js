@@ -28,10 +28,36 @@ function load() {
 			}
 		}
 	}
-
 	
+	function initFooterMenus () {
 
-	
+		const  footerMenus = document.querySelectorAll('.body-footer__list');
+		
+		if (footerMenus.length) {
+			const matchMedia = window.matchMedia(`(width <= 36.0625em)`)
+
+			matchMedia.addEventListener('change', function() {
+				setFooterMenus(matchMedia.matches);
+			}) 
+
+			function setFooterMenus() {
+				footerMenus.forEach(footerMenu => {
+					if(matchMedia.matches) {
+						footerMenu.style.cssText += `height: 0;`
+					} else  {
+						footerMenu.style.cssText = ``;
+					}
+				})
+			}
+			setFooterMenus();
+
+			
+		}
+		
+	}
+
+
+	initFooterMenus()
 	addTouchAttr()
 	initSubMenu()
 
@@ -59,6 +85,19 @@ function load() {
 				}
 			} else {
 				document.documentElement.removeAttribute('data-sub-menu-open')
+			}
+			if (targetElement.closest('.body-footer__title')) { 
+				const currentElement = targetElement.closest('.body-footer__title').nextElementSibling
+				if (window.innerWidth <= 577) {
+					currentElement.style.cssText = ``
+					const currentElementHeight = currentElementHeight.offsetHeight
+					currentElement.style.cssText = `height: 0; padding-top: 0;`
+					currentElement.offsetHeight 
+					currentElement.style.cssText = `height: ${currentElementHeight}px`;
+
+					
+
+				}
 			}
 		} 
 		if (targetElement.closest('.icon-menu')) {

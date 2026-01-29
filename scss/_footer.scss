@@ -52,14 +52,33 @@
 		// color: var(--black-1);
 		@include typo("h2-20");
 		text-transform: uppercase;
-		&:not(:last-child) {
-			@include adaptiveValue("margin-bottom", 28, 15);
-		}
+		
 	}
 
+
+	&__button {
+		@media (width > toEm(577)) {
+			cursor: default;
+			&::before {
+				display: none;
+			}
+		}
+		@media (width <= toEm(577)) {
+			display: flex;
+			flex-direction: row-reverse;
+			width: 100%;
+			justify-content: space-between;
+			&::before {
+				rotate: 90deg;
+			}
+		}
+	}
 	// .body-footer__list
 
 	&__list {
+		@include adaptiveValue("padding-top", 28, 15);
+		overflow: hidden;
+		transition: height 0.3s;
 	}
 
 	// .body-footer__item
