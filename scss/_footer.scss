@@ -52,6 +52,9 @@
 		// color: var(--black-1);
 		@include typo("h2-20");
 		text-transform: uppercase;
+		&[data-footer-menu-open] + .body-footer__list{
+			@include adaptiveValue("margin-top", 28, 15);
+		}
 		
 	}
 
@@ -69,16 +72,23 @@
 			width: 100%;
 			justify-content: space-between;
 			&::before {
+				transition: rotate 0.3s;
 				rotate: 90deg;
+				[data-footer-menu-open] & {
+					rotate: -90deg
+				}
 			}
 		}
 	}
 	// .body-footer__list
 
 	&__list {
-		@include adaptiveValue("padding-top", 28, 15);
+		// @include adaptiveValue("padding-top", 28, 15);
 		overflow: hidden;
-		transition: height 0.3s;
+		transition: all 0.5s;
+		@media (width > toEm(577)) {
+			@include adaptiveValue("margin-top", 28, 15);
+		}
 	}
 
 	// .body-footer__item

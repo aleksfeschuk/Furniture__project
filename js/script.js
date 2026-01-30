@@ -87,16 +87,20 @@ function load() {
 				document.documentElement.removeAttribute('data-sub-menu-open')
 			}
 			if (targetElement.closest('.body-footer__title')) { 
-				const currentElement = targetElement.closest('.body-footer__title').nextElementSibling
+				const currentTitle = targetElement.closest('.body-footer__title')
+				const currentList = currentTitle.nextElementSibling
 				if (window.innerWidth <= 577) {
-					currentElement.style.cssText = ``
-					const currentElementHeight = currentElementHeight.offsetHeight
-					currentElement.style.cssText = `height: 0; padding-top: 0;`
-					currentElement.offsetHeight 
-					currentElement.style.cssText = `height: ${currentElementHeight}px`;
-
-					
-
+					currentTitle.toggleAttribute('data-footer-menu-open')
+					if (currentTitle.hasAttribute('data-footer-menu-open')) {
+						currentList.style.cssText = ``
+						const currentListHeight = currentList.offsetHeight
+						currentList.style.cssText = `height: 0;`
+						currentList.offsetHeight 
+						currentList.style.cssText = `height: ${currentListHeight}px`;
+					} else {
+						currentList.style.cssText = `height: 0;`
+					}
+ 
 				}
 			}
 		} 
