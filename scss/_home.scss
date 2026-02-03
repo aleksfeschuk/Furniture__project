@@ -1,0 +1,68 @@
+@use "_mixins.scss" as *;
+@use "_typo.scss" as *;
+
+
+
+.hero {
+
+    position: relative;
+    aspect-ratio: 1920 / 612;
+
+		// .hero__container
+
+		&__container {
+            min-height: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            // flex-direction: column;
+		}
+
+		// .hero__body
+
+		&__body {
+            position: relative;
+            z-index: 2;
+            flex-basis: 50%;
+		}
+
+		// .hero__label
+
+		&__label {
+            @include typo("h2-20");
+            &:not(:last-child) {
+                @include adaptiveValue("margin-bottom", 20, 10)
+            }
+		}
+
+		// .hero__title
+
+		&__title {
+		}
+
+		// .hero__text
+
+		&__text {
+		}
+
+		// .hero__picture
+
+		&__picture {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+
+		}
+
+		// .hero__image
+
+		&__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+		}
+}
+

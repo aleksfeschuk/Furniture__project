@@ -19,6 +19,8 @@
 
 @use "_footer.scss";
 
+@use "_home.scss";
+
 body {
 	font-family: "Lato", sans-serif;
 	font-weight: 500;
@@ -38,4 +40,13 @@ body {
 	padding-inline: toRem(15);
 	max-width: 1422px;
 	margin: 0 auto;
+}
+
+
+.page {
+
+		// .page__hero
+
+		&__hero {
+		}
 }

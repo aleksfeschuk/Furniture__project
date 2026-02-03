@@ -90,7 +90,14 @@ function load() {
 				const currentTitle = targetElement.closest('.body-footer__title')
 				const currentList = currentTitle.nextElementSibling
 				if (window.innerWidth <= 577) {
+					const activeFooterMenu = document.querySelector('[data-footer-menu-open]');
 					currentTitle.toggleAttribute('data-footer-menu-open')
+
+					if (activeFooterMenu && activeFooterMenu !== currentTitle) {
+						closeActiveFooterMenu(activeFooterMenu)
+						
+					}
+
 					if (currentTitle.hasAttribute('data-footer-menu-open')) {
 						currentList.style.cssText = ``
 						const currentListHeight = currentList.offsetHeight
@@ -100,7 +107,12 @@ function load() {
 					} else {
 						currentList.style.cssText = `height: 0;`
 					}
- 
+
+					function closeActiveFooterMenu(item) {
+						item.removeAttribute('data-footer-menu-open') 
+						const currentList= item.nextElementSibling
+						currentList.style.cssText = `height: 0;`
+					}
 				}
 			}
 		} 
