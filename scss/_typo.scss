@@ -9,12 +9,12 @@
 		font-weight: 700;
 		text-transform: uppercase;
 	} @else if $type == "h2-24" {
-		font-size: toRem(24);
+		@include adaptiveValue("font-size", 24, 18);
 		line-height: 1.5;
 		font-weight: 700;
 		text-transform: uppercase;
 	} @else if $type == "h2-20" {
-		font-size: toRem(20);
+		@include adaptiveValue("font-size", 20, 16);
 		line-height: 1.4;
 		font-weight: 700;
 		text-transform: uppercase;

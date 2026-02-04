@@ -44,7 +44,9 @@ body {
 
 
 .page {
-
+	> * {
+		@include adaptiveValue("margin-bottom", 82, 20)
+	}
 		// .page__hero
 
 		&__hero {
