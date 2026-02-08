@@ -119,6 +119,29 @@
     
 }
 
+
+// More link
+.more {
+	@include typo("");
+    color: var(--black-3);
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	gap: toRem(10);
+	transition: color 0.3s;
+	&::before {
+		translate: 0 toRem(1);
+		font-size: toRem(9);
+		color: var(--black-1)
+	}
+	html:not([data-fls-touch]) & {
+		&:hover {
+			color: var(--black-1);
+		}
+	}
+}
+
+
 .social {
 	display: flex;
 	flex-wrap:  wrap;

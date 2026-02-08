@@ -111,4 +111,118 @@
                   }
 		}
 }
+ 
+
+
+
+.category-banners {
+
+      &__container {
+            display: grid;
+            grid-template-columns: 0.243fr 0.513fr  0.243fr ;
+            gap: toRem(36);
+            @include adaptiveValue("gap", 36, 15);
+            @media (width < toEm(768)) {
+                  overflow: auto;
+                  grid-template-columns: toRem(250);
+                  grid-auto-flow: column;
+                  grid-auto-columns: toRem(25 0);
+
+            }
+      }
+      // .category-banners__item
+
+      &__item {
+      }
+}
+.category-banner {
+      
+     
+      &:nth-child(3n + 2) {
+            background-color: #f7f7f7;
+            // aspect-ratio: 678 / 584;  
+            .category-banner__body {
+                  align-items: center;
+                  text-align: center;
+                  > * {
+                        max-width: toRem(310);
+                  }
+            }
+            .category-banner__picture {
+                  @include adaptiveValue ("padding", 32, 15)
+            }   
+            
+      }
+            &:nth-child(3n + 2),
+            &:nth-child(3n) {
+                  .category-banner__link {
+                        flex-direction: column-reverse;
+                  }
+            }
+      background-color: #f7f7f7;
+
+      
+
+      &--top {
+
+      }
+
+      &--nopadding {
+            padding: 0;
+      }
+
+      &__link {
+            min-height: 100%;
+            display: flex;            
+            justify-content: space-between;
+            flex-direction: column;
+            
+      }
+
+      // .category-banner__picture
+
+      &__picture {
+            text-align: center;
+            @include adaptiveValue("padding", 32, 15);
+      }
+
+      // .category-banner__image
+
+      &__image {
+            
+      }
+
+      // .category-banner__body
+
+      &__body {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            @include adaptiveValue ("padding", 32, 15);
+      }
+
+      // .category-banner__title
+
+      &__title {
+            @include typo("h2-20");
+            &:not(:last-child) {
+                  @include adaptiveValue ("margin-bottom", 24, 15);
+            }
+      }
+
+      // .category-banner__text
+
+      &__text {
+            @include typo("");
+            color: var(--black-3);
+            &:not(:last-child) {
+                  @include adaptiveValue ("margin-bottom", 38, 24);
+            }
+      }
+
+      // .category-banner__more
+
+      &__more {
+      }
+}
 

@@ -42,13 +42,18 @@ body {
 	margin: 0 auto;
 }
 
-
 .page {
-	> * {
+	> *:not([class*="--nomargin"]) {
 		@include adaptiveValue("margin-bottom", 82, 20)
+	}
+	> *:not([class*="--nopadding"]) {
+		@include adaptiveValue("padding-top", 82, 20)
 	}
 		// .page__hero
 
-		&__hero {
-		}
+	&__hero {
+	}
+
+	&__category-banners {
+      }
 }
