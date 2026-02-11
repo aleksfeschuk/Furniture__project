@@ -43,6 +43,10 @@ body {
 }
 
 .page {
+	&--home {
+		@include adaptiveValue("padding-top", 164, 70, 0, 1392, 670)
+	}
+
 	> *:not([class*="--nomargin"]) {
 		@include adaptiveValue("margin-bottom", 82, 20)
 	}
@@ -56,4 +60,11 @@ body {
 
 	&__category-banners {
       }
+
+	&__clients {
+		
+	}
+
+	&__featured-products {
+		}
 }

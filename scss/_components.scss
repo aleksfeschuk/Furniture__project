@@ -116,7 +116,15 @@
             left: 50%;
     	}
 	}
-    
+    html:not([data-fls-touch]) & {
+		&:hover {
+			span::after {
+				left: 0;
+				width: 100%;
+			}
+		}
+	}
+
 }
 
 

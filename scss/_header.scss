@@ -5,15 +5,24 @@
 @use "_components.scss" as *;
 
 .header { 
-    position: sticky;
+    position: fixed;
     top: 0;
+    width: 100%;
+    left: 0;
     background-color: var(--black-8);
     z-index: 50;
+    &--scroll {
+        .header__container {
+            transition: min-height 0.5s;
+            min-height: 7  0px;
+        }
+    }
     
     &__container {
         display: flex;
         align-items: center;
         padding-block: toRem(10);
+        transition: min-height 0.3 s;
         @include adaptiveValue("min-height", 164, 70, 0, 1392, 670);
         @include adaptiveValue("gap", 80, 20, 0, 1392, 768);
     }

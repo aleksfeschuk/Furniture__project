@@ -63,6 +63,18 @@ function load() {
 
 	document.addEventListener('click', documentActions)
 
+	window.addEventListener('scroll', windowScroll)
+
+	const header = document.querySelector('.header');
+
+	function windowScroll(e) {
+		if (scrollY > 10) {
+			header.classList.add('header--scroll')
+		} else {
+			header.classList.remove('header--scroll')
+		}
+	}
+
 	function documentActions(e) {
 		const targetElement = e.target
 		if (isMobile.any()) {
@@ -111,7 +123,7 @@ function load() {
 					function closeActiveFooterMenu(item) {
 						item.removeAttribute('data-footer-menu-open') 
 						const currentList= item.nextElementSibling
-						currentList.style.cssText = `height: 0;`
+						currentList.style.cssText = `height: 0;f`
 					}
 				}
 			}
@@ -119,6 +131,33 @@ function load() {
 		if (targetElement.closest('.icon-menu')) {
 			document.documentElement.toggleAttribute('data-menu-open')
 
+		}
+
+		if(targetElement.closest('.filter-products-featured__link')) {
+			const currentFilter = targetElement.closest(".filter-products-featured__link")
+			const activeFilter = document.querySelector(".filter-products-featured__link--active")
+			const featuredItems = document.querySelectorAll('.products-featured__items>.item');
+			const activeFilterValue = currentFilter.dataset.filterProducts
+
+			if(activeFilter && activeFilter !== currentFilter) {
+				activeFilter.classList.remove("filter-products-featured__link--active")
+			}
+
+			currentFilter.classList.add(".filter-products-featured__link--active");
+
+			featuredItems.forEach(featuredItem => {  
+
+				featuredItem.closest(`[class*="--${activeFilterValue}]`) || activeFilterValue !== '*' ? featuredItem.style.display = 'flex' : featuredItem.style.display = 'none' 
+
+				// featuredItem.classList.toggle('item--hidden', !(featuredItem.closest(`[class*="--${activeFilterValue}]`) || activeFilterValue === '* '))  
+
+				// setTimeout(() => {
+				// 	featuredItem.closest(`[class*="--${activeFilterValue}]`) || activeFilterValue !== '*' ? featuredItem.style.display = 'flex' : featuredItem.style.display = 'none' 
+				// }, 500)
+				 
+			})
+
+			e.preventDefault()
 		}
 	}
 

@@ -226,3 +226,111 @@
       }
 }
 
+
+.clients {
+
+		// .clients__container
+
+		&__container {
+		}
+
+		// .clients__title
+
+		&__title {
+                  @include adaptiveValue("margin-bottom", 72, 20 )
+		}
+
+		// .clients__items
+
+		&__items {
+                  row-gap: toRem(20);
+                  @include adaptiveValue("column-gap", 74, 20 );
+                  display: grid;
+                  grid-template-columns: repeat(auto-fill, minmax(toRem(170), 1fr ));
+
+                  @media (width <= toEm(620)) {
+                        margin-inline: toRem(-15);
+                        padding-inline: toRem(15);
+                        overflow: auto;
+                        grid-template-columns: toRem(170);
+                        grid-auto-flow: column;
+                        grid-auto-columns: toRem(170); 
+                        
+
+                  }
+		}
+
+		// .clients__item
+
+		&__item {
+                  aspect-ratio: 1;
+		}
+
+		// .clients__image
+
+		&__image {
+		}
+}
+
+
+
+ 
+.products-featured {
+
+		// .products-featured__container
+
+		&__container {
+		}
+
+		// .products-featured__title
+
+		&__title {
+                  @include adaptiveValue("margin-bottom", 36, 20);
+		}
+
+		// .products-featured__filter
+
+		&__filter {
+                  @include adaptiveValue("margin-bottom", 72, 20);
+		}
+
+            &__items {
+                  display: grid;
+                  grid-template-columns: repeat(auto-fill, minmax(min(toRem(380), 100%), 1fr));  
+                  @include adaptiveValue("row-gap",  72 , 20); 
+                  @include adaptiveValue("column-gap",  36, 20); 
+
+                  // .item {
+                  // transition: scale 0.5s; 
+                  //       &--hidden {
+                  //             scale: 0;
+                  //       }
+                  // } 
+            }
+}
+.filter-products-featured {
+            display: flex;
+            justify-content: center ;
+            align-items: center;
+            flex-wrap: wrap;
+            row-gap: toRem(10);
+		// .filter-products-featured__item
+            @include adaptiveValue("column-gap",  48, 20); 
+		&__item {
+                 
+		}
+
+		// .filter-products-featured__link
+
+		&__link {
+                  &--active {
+                        span::after {
+                              left: 0;
+                              width: 100%;
+                        }
+                  }
+		}
+}
+.link-bold {
+}
+ 
