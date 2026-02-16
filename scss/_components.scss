@@ -127,6 +127,22 @@
 
 }
 
+.button {
+	background-color: var(--black-1);
+	transition: background-color 0.3s;
+	padding: toRem(12);
+	min-width: toRem(225);
+	text-align: center;
+	text-transform: uppercase;
+	@include typo('');
+	color: var(--black-8);
+	html:not([data-fls-touch]) & {
+		&:hover {
+			background-color: var(--green)
+		}
+	}
+
+}
 
 // More link
 .more {
