@@ -21,6 +21,9 @@
 
 @use "_home.scss";
 
+@use "_catalog.scss";
+ 
+
 body {
 	font-family: "Lato", sans-serif;
 	font-weight: 500;
@@ -35,6 +38,7 @@ body {
 }
 .wrapper > main {
 	flex-grow: 1;
+
 }
 [class*="__container"] {
 	padding-inline: toRem(15);
@@ -42,33 +46,20 @@ body {
 	margin: 0 auto;
 }
 
-.page {
-	&--home {
-		@include adaptiveValue("padding-top", 164, 70, 0, 1392, 670)
-	}
-
+[class*="--sections"] {
 	> *:not([class*="--nomargin"]) {
-		@include adaptiveValue("margin-bottom", 82, 20)
+			@include adaptiveValue("margin-bottom", 82, 20)
 	}
 	> *:not([class*="--nopadding"]) {
-		@include adaptiveValue("padding-top", 82, 20)
+			@include adaptiveValue("padding-top", 82, 20)
 	}
-		// .page__hero
+}	
 
-	&__hero {
-	}
+main {
+	@include adaptiveValue("padding-top", 164, 70, 0, 1392, 670);
 
-	&__category-banners {
-      }
-
-	&__clients {
-		
-	}
-
-	&__featured-products {
-		}
-
-	&__why {
-		
-	}
 }
+
+
+
+

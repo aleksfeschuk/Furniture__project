@@ -37,6 +37,7 @@ h6 {
 	font-size: inherit;
 	font-family: inherit;
 }
+select,
 textarea,
 input {
 	width: 100%;
@@ -60,4 +61,8 @@ button,
 input[type="checkbox"],
 input[type="radio"] {
 	cursor: pointer;
+}
+
+cite {
+	font-style: normal;
 }

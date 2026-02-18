@@ -60,12 +60,48 @@ function load() {
 	initFooterMenus()
 	addTouchAttr()
 	initSubMenu()
+	initSliders() 
 
 	document.addEventListener('click', documentActions)
 
 	window.addEventListener('scroll', windowScroll)
 
 	const header = document.querySelector('.header');
+
+
+	 function initSliders() {
+		const reviewsSlider = document.querySelector('.reviews__slider')
+
+		if (reviewsSlider) {
+			const sliderReviews = new Swiper(reviewsSlider , {
+				// loop: true, 
+				sliderPerView: 1.8,
+
+				// If we need pagination
+				pagination: {
+					el: '.swiper-pagination',
+					clickable: true  
+				},
+				autoHeight: true,
+				spaceBetween: 30,
+				centeredSlides: true,
+
+
+				breakpoints: {
+					// when window width is >= 320px
+					320: {
+					slidesPerView: 1.3,
+					spaceBetween: 20
+					},
+					// when window width is >= 640px
+					480 : {
+					slidesPerView: 1.8,
+					spaceBetween: 30,
+					}
+				} 
+			});
+		}
+	}
 
 	function windowScroll(e) {
 		if (scrollY > 10) {
@@ -160,5 +196,7 @@ function load() {
 			e.preventDefault()
 		}
 	}
+
+	 
 
 }

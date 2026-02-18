@@ -8,6 +8,13 @@
 		<meta charset="UTF-8">
 		<!-- Налаштування в'юпорту (адаптиву, масштабу тощо) -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+		/>
+
+
 		<!--Підключення окремого файлу стилів -->
 		<link rel="stylesheet" href="./scss/style.css">
 		<!-- Заголовок сторінки в браузері (вкладці) -->
@@ -63,8 +70,8 @@
 					</div>
 				</div>
 			</header>
-			<main class="page page--home">
-				<section class="page__hero hero hero--nopadding">
+			<main class="home home--home">
+				<section class="home__hero hero hero--nopadding">
 					<div class="hero__container">
 						<div class="hero__body">
 							<div class="hero__label">WELCOME TO OUR</div>
@@ -81,7 +88,7 @@
 						<img src="./images/hero/background.jpg" alt="Hero Furniture" class="hero__image">
 					</figure>
 				</section>
-				<div class="page__category-banners category-banners">
+				<div class="home__category-banners category-banners">
 					<div class="category-banners__container">
 						<article class="category-banners__item category-banner">
 							<a href="" class="category-banner__link">
@@ -135,7 +142,7 @@
 					</div>
 
 				</div>
-				<section class="page__clients clients">
+				<section class="home__clients clients">
 					<div class="clients__container">
 						<div class="clients__title title title--center ">TRUSTED BY</div>
 						<div class="clients__items">
@@ -180,7 +187,7 @@
 						</div>
 					</div>
 				</section>
-				<section class="page__featured-products products ">
+				<section class="home__featured-products products-featured  ">
 					<div class="products-featured__container">
 						<h2 class="products-featured__title title title-- center">FEATURED PRODUCTS</h2>
 						<ul class="products-featured__filter filter-products-featured">
@@ -321,7 +328,7 @@
 						</div>
 					</div>
 				</section>
-				<section class="page__why why"> 
+				<section class="home__why why"> 
 					<div class="why__container">
 						<h2 class="why__title title  title--center">WHY CHOOSE US?</h2>
 						<div class="why__items">
@@ -383,7 +390,7 @@
 						</div>
 					</div>
 				</section>
-				<section class="page__sale sale">
+				<section class="home__sale sale">
 					<div class="sale__container">
 						<div class="sale__wrapper">
 							<div class="sale__body">
@@ -399,11 +406,17 @@
 										<div class="rating__item rating__item--icon-star"></div>
 									</div>
 								</div>
-								 
+								<div class="sale__price price-sale">
+									<div class="price-sale__old">$3252.41</div>
+									<div class="price-sale__price">
+										<div class="price-sale__value">$2352.41</div>
+										<div class="price-sale__sale">-30%</div>
+									</div>
+								</div>
 							</div>
 							<a href="#" class="sale__link-image">
 								<figure class="sale__picture">
-									<img src="./images/saleproduct/image.png" class="sale__image sale__image--center" alt="Image">
+									<img src="./images/saleproduct/image.png" class="sale__image" alt="Image">
 								</figure>
 							</a>
 							<div class="sale__content">
@@ -416,6 +429,73 @@
 						
 					</div>
 				</section>
+				<section class="home__reviews reviews">
+					<!-- <div class="reviews__container"> -->
+						<h2 class="reviews__title title title--center">REVIEWD BY CUSTOMERS</h2>
+						<div class="reviews__sub-title">WHAT OUR CUSTOMERS THINK ABOUT US? </div>
+						<!-- Slider main container -->
+						<div class="reviews__swiper swiper">
+						<!-- Additional required wrapper -->
+							<div class="swiper-wrapper">
+								<!-- Slides -->
+								<div class="swiper-slide">
+									<div class="item-review">
+										<img src="./images/reviews/avatar.jpg" class="item-review__avatar" alt="Image ">
+										<div class="item-review__avatar"></div>
+										<div class="item-review__rating rating">
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+										</div>
+										<blockquote class="item-review__text">
+											<p>The sofa is not only incredibly stylish, but also very comfortable to lounge on. The clean lines and minimalist design make it a perfect fit for my modern living room, and the neutral color scheme allows me to easily incorporate other accent pieces. The sofa is also very sturdy and well-constructed, so I know it will last me for years to come."</p>
+										</blockquote>
+										<cite class="item-review__author">  Larry Jonhson  </cite>
+									</div>
+								</div>
+								<difv class="swiper-slide">
+									<div class="item-review">
+										<img src="./images/reviews/avatar.jpg" class="item-review__avatar" alt="Image ">
+										<div class="item-review__rating rating">
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+										</div>
+										<blockquote class="item-review__text">
+											<p>The sofa is not only incredibly stylish, but also very comfortable to lounge on. The clean lines and minimalist design make it a perfect fit for my modern living room, and the neutral color scheme allows me to easily incorporate other accent pieces. The sofa is also very sturdy and well-constructed, so I know it will last me for years to come."</p>
+											<p>The sofa is not only incredibly stylish, but also very comfortable to lounge on. The clean lines and minimalist design make it a perfect fit for my modern living room, and the neutral color scheme allows me to easily incorporate other accent pieces. The sofa is also very sturdy and well-constructed, so I know it will last me for years to come."</p> 
+										</blockquote>
+										<cite class="item-review__author">  Larry Jonhson  </cite>
+									</div>
+								</difv>
+								<div class="swiper-slide">
+									<div class="item-review">
+										<img src="./images/reviews/avatar.jpg" class="item-review__avatar" alt="Image ">
+										<div class="item-review__avatar"></div>
+										<div class="item-review__rating rating">
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+										</div>
+										<blockquote class="item-review__text">
+											<p>The sofa is not only incredibly stylish, but also very comfortable to lounge on. The clean lines and minimalist design make it a perfect fit for my modern living room, and the neutral color scheme allows me to easily incorporate other accent pieces. The sofa is also very sturdy and well-constructed, so I know it will last me for years to come."</p>
+										</blockquote>
+										<cite class="item-review__author">  Larry Jonhson  </cite>
+									</div>
+								</div>
+							</div>
+							<!-- If we need pagination -->
+							<div class="swiper-pagination"></div> 
+						</div>
+					<!-- </div> -->
+				</section>
+
 			</main>
 			<footer class="footer">
 				<div class="footer__container">
@@ -480,6 +560,9 @@
 				</div>
 			</footer>
 		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
 		<script src="js/script.js"></script>
 	</body>
 </html>
