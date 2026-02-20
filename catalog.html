@@ -8,15 +8,10 @@
 		<meta charset="UTF-8">
 		<!-- Налаштування в'юпорту (адаптиву, масштабу тощо) -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
-		/>
-
-
+		<!-- Підключення стилів слайдера -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 		<!--Підключення окремого файлу стилів -->
-		<link rel="stylesheet" href="./scss/style.css">
+		<link rel="stylesheet" href="scss/style.css">
 		<!-- Заголовок сторінки в браузері (вкладці) -->
 		<title>Catalog</title>
 		<!-- Відкрити усі вкладки в новій вкладці -->
@@ -27,7 +22,7 @@
 			<header class="header">
 				<div class="header__container">
 					<div class="header__logo">
-						<img src="./images/logo.svg" alt="Image" class="header__image-logo">
+						<img src="images/logo.svg" alt="Image" class="header__image-logo">
 					</div>
 					<form action="#" class="header__search search-header search-header--icon-search">
 						<input placeholder="Search something" type="search" class="search-header__input">
@@ -59,56 +54,345 @@
 								</div>
 							</li>
 							<li class="menu__item"><a href="#" class="menu__link"><span>BLOG</span></a></li>
-						
 							<li class="menu__item"><a href="#" class="menu__link"><span>ABOUT US</span></a></li>
 						</ul>
 					</nav>
 					<div class="header__action action-header">
 						<a href="#" class="action-header__link action-header__link--icon-favorite"><span>LOVE</span></a>
 						<a href="#" class="action-header__link action-header__link--icon-cart"><span>CART</span></a>
-						<button type="button" class="action-header__menu-icon  icon-menu"><span></span></button>
+						<button type="button" class="action-header__menu-icon icon-menu"><span></span></button>
 					</div>
 				</div>
 			</header>
 			<main class="catalog">
-                <div class="catalog__container">
-					<div class="breadcrumbs"> 
+				<div class="catalog__container">
+					<div class="breadcrumbs">
 						<ul class="breadcrumbs__list">
 							<li class="breadcrumbs__item">
 								<a href="#" class="breadcrumbs__link">Home</a>
 							</li>
 							<li class="breadcrumbs__item">
-								<span class="breadcrumbs__current">Funiture </span>
+								<span class="breadcrumbs__current">Funiture</span>
 							</li>
 						</ul>
 					</div>
 					<form action="#" class="catalog__main">
-						<aside class="catalog__filter filter"></aside>
-                    	<div class="catalog__body body-catalog">
-							<h1 class="body-catalog__title title-catalog">RESULT FOR "FURNITURE"</h1>
+						<aside class="catalog__filter filter">
+							<div class="filter__section">
+								<h3 class="filter__title title-catalog">CATEGORY</h3>
+								<div class="filter__items">
+									<details class="filter__item item-filter">
+										<summary class="item-filter__title">FUNITURE</summary>
+										<div class="item-filter__body">
+											<ul class="item-filter__list">
+												<li class="item-filter__item">
+													<a href="#" class="item-filter__link item-filter__link--active">Chair</a>
+												</li>
+												<li class="item-filter__item">
+													<a href="#" class="item-filter__link">Sofa</a>
+												</li>
+												<li class="item-filter__item">
+													<a href="#" class="item-filter__link">Couch</a>
+												</li>
+												<li class="item-filter__item">
+													<a href="#" class="item-filter__link">Desk</a>
+												</li>
+												<li class="item-filter__item">
+													<a href="#" class="item-filter__link">Lamp</a>
+												</li>
+											</ul>
+										</div>
+									</details>
+								</div>
+							</div>
+							<div class="filter__section">
+								<h3 class="filter__title title-catalog">SHOP BY</h3>
+								<div class="filter__items">
+									<div class="filter__item item-filter">
+
+									</div>
+								</div>
+							</div>
+						</aside>
+						<div class="catalog__body body-catalog">
+							<h1 class="body-catalog__title title-catalog">RESULT FOR “FURNITURE”</h1>
 							<div class="body-catalog__actions actions-catalog">
 								<button class="actions-catalog__sale sale-element">ON SALE</button>
 								<div class="actions-catalog__order order-catalog">
 									<label for="select" class="order-catalog__label">Order by:</label>
-										<select name="form[]" id="select" class="order-catalog__select">
-											<option value="" class="order-catalog__item">Default</option>
-											<option value="price" class="order-catalog__item">Price</option>
-											<option value="name" class="order-catalog__item">Name</option>
+									<div class="order-catalog__select select-item order-catalog__select--icon-select-arrow">
+										<select name="form[]" id="select" class="select-item__body">
+											<option value selected class="select-item__item">Default</option>
+											<option value="price" class="select-item__item">Price</option>
+											<option value="name" class="select-item__item">Name</option>
 										</select>
+									</div>
 								</div>
 								<div class="actions-catalog__view view-catalog">
-									<button class="view-catalog__item view-catalog__item--active view-catalog__item--icon-list-grid"></button> 
-									<button class="view-catalog__item  view-catalog__item--icon-list"></button>
-									
+									<button class="view-catalog__item view-catalog__item--active view-catalog__item--icon-grid"></button>
+									<button class="view-catalog__item view-catalog__item--icon-list"></button>
 								</div>
-								<div class="actions-catalog__info">SHOWED 1</div>
+								<div class="actions-catalog__info info-catalog">SHOWED 1 - 9 OF 30 PRODUCTS</div>
 							</div>
-							<div class="body-catalog__items"></div>
-							
+							<section class="body-catalog__sale sale">
+								<div class="sale__wrapper">
+									<div class="sale__body">
+										<div class="sale__main">
+											<h4 class="sale__title">
+												<a href="#" class="sale__link-title">MORDERN BRONZE HANGING LIGHT</a>
+											</h4>
+											<div class="sale__rating rating">
+												<div class="rating__item rating__item--icon-star"></div>
+												<div class="rating__item rating__item--icon-star"></div>
+												<div class="rating__item rating__item--icon-star"></div>
+												<div class="rating__item rating__item--icon-star"></div>
+												<div class="rating__item rating__item--icon-star"></div>
+											</div>
+										</div>
+										<div class="sale__price price-sale">
+											<div class="price-sale__old">$3252.41</div>
+											<div class="price-sale__price">
+												<div class="price-sale__value">$2352.41</div>
+												<div class="price-sale__sale">-30%</div>
+											</div>
+										</div>
+									</div>
+									<a href="#" class="sale__link-image">
+										<figure class="sale__picture sale__picture--mini">
+											<img src="images/saleproduct/image.png" class="sale__image" alt="Image">
+											<!-- <img src="img/banners/01.png" class="sale__image" alt="Image"> -->
+											<!-- <img src="img/banners/02.png" class="sale__image sale__image--center" alt="Image"> -->
+										</figure>
+									</a>
+								</div>
+							</section>
+							<div class="body-catalog__items">
+								<article class="item">
+									<a href="#" class="item__link item__link--bottom">
+										<img src="img/products/thumbs/chair.png" class="item__image" alt="Image">
+									</a>
+									<div class="item__body">
+										<h4 class="item__title">
+											<a href="#" class="item__link-title">
+												URBAN LUX HIGH CHAIR
+											</a>
+										</h4>
+										<div class="item__rating rating">
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+										</div>
+										<div class="item__price">$2668.15</div>
+									</div>
+								</article>
+								<article class="item">
+									<a href="#" class="item__link item__link--top">
+										<img src="img/products/thumbs/lamp.png" class="item__image" alt="Image">
+									</a>
+									<div class="item__body">
+										<h4 class="item__title">
+											<a href="#" class="item__link-title">
+												MORDERN BLACK HANGING LIGHT
+											</a>
+										</h4>
+										<div class="item__rating rating">
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+										</div>
+										<div class="item__price">$2668.15</div>
+									</div>
+								</article>
+								<article class="item">
+									<a href="#" class="item__link item__link--bottom">
+										<img src="img/products/thumbs/chair.png" class="item__image" alt="Image">
+									</a>
+									<div class="item__body">
+										<h4 class="item__title">
+											<a href="#" class="item__link-title">
+												URBAN LUX HIGH CHAIR
+											</a>
+										</h4>
+										<div class="item__rating rating">
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+										</div>
+										<div class="item__price">$2668.15</div>
+									</div>
+								</article>
+								<article class="item">
+									<a href="#" class="item__link item__link--top">
+										<img src="img/products/thumbs/lamp.png" class="item__image" alt="Image">
+									</a>
+									<div class="item__body">
+										<h4 class="item__title">
+											<a href="#" class="item__link-title">
+												MORDERN BLACK HANGING LIGHT
+											</a>
+										</h4>
+										<div class="item__rating rating">
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+										</div>
+										<div class="item__price">$2668.15</div>
+									</div>
+								</article>
+								<article class="item">
+									<a href="#" class="item__link item__link--bottom">
+										<img src="img/products/thumbs/chair.png" class="item__image" alt="Image">
+									</a>
+									<div class="item__body">
+										<h4 class="item__title">
+											<a href="#" class="item__link-title">
+												URBAN LUX HIGH CHAIR
+											</a>
+										</h4>
+										<div class="item__rating rating">
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+										</div>
+										<div class="item__price">$2668.15</div>
+									</div>
+								</article>
+								<article class="item">
+									<a href="#" class="item__link item__link--top">
+										<img src="img/products/thumbs/lamp.png" class="item__image" alt="Image">
+									</a>
+									<div class="item__body">
+										<h4 class="item__title">
+											<a href="#" class="item__link-title">
+												MORDERN BLACK HANGING LIGHT
+											</a>
+										</h4>
+										<div class="item__rating rating">
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+										</div>
+										<div class="item__price">$2668.15</div>
+									</div>
+								</article>
+								<article class="item">
+									<a href="#" class="item__link item__link--bottom">
+										<img src="img/products/thumbs/chair.png" class="item__image" alt="Image">
+									</a>
+									<div class="item__body">
+										<h4 class="item__title">
+											<a href="#" class="item__link-title">
+												URBAN LUX HIGH CHAIR
+											</a>
+										</h4>
+										<div class="item__rating rating">
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+										</div>
+										<div class="item__price">$2668.15</div>
+									</div>
+								</article>
+								<article class="item">
+									<a href="#" class="item__link item__link--top">
+										<img src="img/products/thumbs/lamp.png" class="item__image" alt="Image">
+									</a>
+									<div class="item__body">
+										<h4 class="item__title">
+											<a href="#" class="item__link-title">
+												MORDERN BLACK HANGING LIGHT
+											</a>
+										</h4>
+										<div class="item__rating rating">
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+										</div>
+										<div class="item__price">$2668.15</div>
+									</div>
+								</article>
+								<article class="item">
+									<a href="#" class="item__link item__link--bottom">
+										<img src="img/products/thumbs/chair.png" class="item__image" alt="Image">
+									</a>
+									<div class="item__body">
+										<h4 class="item__title">
+											<a href="#" class="item__link-title">
+												URBAN LUX HIGH CHAIR
+											</a>
+										</h4>
+										<div class="item__rating rating">
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+										</div>
+										<div class="item__price">$2668.15</div>
+									</div>
+								</article>
+								<article class="item">
+									<a href="#" class="item__link item__link--top">
+										<img src="img/products/thumbs/lamp.png" class="item__image" alt="Image">
+									</a>
+									<div class="item__body">
+										<h4 class="item__title">
+											<a href="#" class="item__link-title">
+												MORDERN BLACK HANGING LIGHT
+											</a>
+										</h4>
+										<div class="item__rating rating">
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+											<div class="rating__item rating__item--icon-star"></div>
+										</div>
+										<div class="item__price">$2668.15</div>
+									</div>
+								</article>
+							</div>
+							<div class="body-catalog__footer footer-catalog">
+								<div class="footer-catalog__pagging pagging">
+									<ul class="pagging__list">
+										<li class="pagging__item">
+											<a href="#" class="pagging__link pagging__link--current">01</a>
+										</li>
+										<li class="pagging__item">
+											<a href="#" class="pagging__link">02</a>
+										</li>
+										<li class="pagging__item">
+											<a href="#" class="pagging__link">03</a>
+										</li>
+										<li class="pagging__item">
+											<a href="#" class="pagging__link pagging__link--left-arrow pagging__link--icon-select-arrow"></a>
+										</li>
+										<li class="pagging__item">
+											<a href="#" class="pagging__link pagging__link--right-arrow pagging__link--icon-select-arrow"></a>
+										</li>
+									</ul>
+								</div>
+								<div class="footer-catalog__info info-catalog">SHOWED 1 - 9 OF 30 PRODUCTS</div>
+							</div>
 						</div>
 					</form>
-                   
-                </div>
+				</div>
 			</main>
 			<footer class="footer">
 				<div class="footer__container">
@@ -116,46 +400,46 @@
 						<div class="body-footer__column">
 							<h5 class="body-footer__title"><button tabindex="-1" class="body-footer__button body-footer__button--icon-shevron">CUSTOMER SERVICE</button></h5>
 							<ul class="body-footer__list">
-								<li class="body-footer__item"><a href="" class="body-footer__link">Help & FAQs</a></li>	
-								<li class="body-footer__item"><a href="" class="body-footer__link">Return & Refund</a></li>				
-								<li class="body-footer__item"><a href="" class="body-footer__link">Shipping Policy</a></li>					
-								<li class="body-footer__item"><a href="" class="body-footer__link">Customs and Tax</a></li>
-								<li class="body-footer__item"><a href="" class="body-footer__link">Customers's Rev</a></li>
+								<li class="body-footer__item"><a href="#" class="body-footer__link">Help & FAQs</a></li>
+								<li class="body-footer__item"><a href="#" class="body-footer__link">Return & Refund</a></li>
+								<li class="body-footer__item"><a href="#" class="body-footer__link">Shipping Policy</a></li>
+								<li class="body-footer__item"><a href="#" class="body-footer__link">Customs and Taxes</a></li>
+								<li class="body-footer__item"><a href="#" class="body-footer__link">Customers’s Reviews</a></li>
 							</ul>
 						</div>
 						<div class="body-footer__column">
 							<h5 class="body-footer__title"><button tabindex="-1" class="body-footer__button body-footer__button--icon-shevron">COMPANY</button></h5>
 							<ul class="body-footer__list">
-								<li class="body-footer__item"><a href="" class="body-footer__link">About Japan with love</a></li>	
-								<li class="body-footer__item"><a href="" class="body-footer__link">Contact Us</a></li>				
-								<li class="body-footer__item"><a href="" class="body-footer__link">Special Deals & Offers</a></li>					
-								<li class="body-footer__item"><a href="" class="body-footer__link">Terms of Service</a></li>
-								<li class="body-footer__item"><a href="" class="body-footer__link">Privacy Policy</a></li>
+								<li class="body-footer__item"><a href="#" class="body-footer__link">About Japan with love</a></li>
+								<li class="body-footer__item"><a href="#" class="body-footer__link">Contact Us</a></li>
+								<li class="body-footer__item"><a href="#" class="body-footer__link">Special Deals & Offers</a></li>
+								<li class="body-footer__item"><a href="#" class="body-footer__link">Terms of Service</a></li>
+								<li class="body-footer__item"><a href="#" class="body-footer__link">Privacy Policy</a></li>
 							</ul>
 						</div>
 						<div class="body-footer__column">
 							<h5 class="body-footer__title"><button tabindex="-1" class="body-footer__button body-footer__button--icon-shevron">HELP CENTER</button></h5>
 							<ul class="body-footer__list">
-								<li class="body-footer__item"><a href="" class="body-footer__link">Order Information</a></li>	
-								<li class="body-footer__item"><a href="" class="body-footer__link">Shipping Options</a></li>				
-								<li class="body-footer__item"><a href="" class="body-footer__link">International Shipping</a></li>					
-								<li class="body-footer__item"><a href="" class="body-footer__link">Payment Options</a></li>
+								<li class="body-footer__item"><a href="#" class="body-footer__link">Order Information</a></li>
+								<li class="body-footer__item"><a href="#" class="body-footer__link">Shipping Options</a></li>
+								<li class="body-footer__item"><a href="#" class="body-footer__link">International Shipping</a></li>
+								<li class="body-footer__item"><a href="#" class="body-footer__link">Payment Options</a></li>
 							</ul>
 						</div>
 						<div class="body-footer__column">
 							<h5 class="body-footer__title"><button tabindex="-1" class="body-footer__button body-footer__button--icon-shevron">RETURN & WARRANTLY</button></h5>
 							<ul class="body-footer__list">
-								<li class="body-footer__item"><a href="" class="body-footer__link">Returns & Exchange Policy</a></li>	
-								<li class="body-footer__item"><a href="" class="body-footer__link">Returns Center</a></li>				
-								<li class="body-footer__item"><a href="" class="body-footer__link">Warranty Policy</a></li>					
-								<li class="body-footer__item"><a href="" class="body-footer__link">Warranty Registration</a></li>
-								<li class="body-footer__item"><a href="" class="body-footer__link">Warranty Repair Center</a></li>
+								<li class="body-footer__item"><a href="#" class="body-footer__link">Returns & Exchange Policy</a></li>
+								<li class="body-footer__item"><a href="#" class="body-footer__link">Returns Center</a></li>
+								<li class="body-footer__item"><a href="#" class="body-footer__link">Warranty Policy</a></li>
+								<li class="body-footer__item"><a href="#" class="body-footer__link">Warranty Registration</a></li>
+								<li class="body-footer__item"><a href="#" class="body-footer__link">Warranty Repair Center</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="footer__bottom bottom-footer">
 						<div class="bottom-footer__text">Furnitur © Copyright 2020, Inc. All rights reserved</div>
-						<ul class="bottom-footer_social social">
+						<ul class="bottom-footer__social social">
 							<li class="social__item">
 								<a target="_blank" rel="nofollow" href="#" class="social__link social__link--icon-facebook"></a>
 							</li>
@@ -173,9 +457,8 @@
 				</div>
 			</footer>
 		</div>
-
+		<!-- Підключення JS слайдера -->
 		<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-
 		<script src="js/script.js"></script>
 	</body>
 </html>
