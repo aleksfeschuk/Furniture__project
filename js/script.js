@@ -61,6 +61,9 @@ function load() {
 	addTouchAttr()
 	initSubMenu()
 	initSliders() 
+	initFilterSpollers()
+	initNoUiSlider()
+	initFilter()
 
 	document.addEventListener('click', documentActions)
 
@@ -69,7 +72,43 @@ function load() {
 	const header = document.querySelector('.header');
 
 
-	 function initSliders() {
+	function initFilter() {
+		const filter = document.querySelector('.filter')
+		if (filter) {
+			const matchMedia = window.matchMedia(`(width <= 65.625 em)`)
+			matchMedia.addEventListener('change', function() {
+				setFilter(matchMedia);
+			}) 
+			setFilter(matchMedia);
+			function setFilter(matchMedia) {
+				if(matchMedia.matches) {
+					const mobileFilter = document.querySelector('.body-catalog__mobile-filter')
+					filter.style.cssText = `height: 0;`
+					mobileFilter.insertAdjacentElement("afterbegin", filter);
+				} else  {
+					const catalogMain = document.querySelector('.catalog-main')
+					catalogMain.insertAdjacentElement("afterbegin", filter)
+					filter.style.cssText = ``
+					filter.classList.remove('filter--open')
+				}
+			}
+		}
+		
+			
+	}
+
+	function initFilterSpollers () {
+		const filterSpollers = document.querySelectorAll('.item-filter[open]')
+
+		if(filterSpollers.length) {
+			filterSpollers.forEach(filterSpollers => {
+				filterSpollers.classList.add('item-filter--open')
+			})
+		}
+	}
+
+
+	 function initSliders() { 
 		const reviewsSlider = document.querySelector('.reviews__slider')
 
 		if (reviewsSlider) {
@@ -101,6 +140,29 @@ function load() {
 				} 
 			});
 		}
+	}
+
+	function initNoUiSlider() {
+		const priceSlider = document.querySelector('.price-filter__slider')
+		const priceInfoItems  = document.querySelectorAll('price-filter__info span')
+
+		if (priceSlider) {
+			noUiSlider.create(priceSlider, {
+				start: [1500, 50000],
+				connect: true,
+				range: {
+					'min': 100,
+					'max': 10000
+				}
+			});
+			priceSlider.noUiSlider.on('update', function (values) {
+				priceInfoItems[0].innerHTML = Math.round(values[0])
+				priceInfoItems[1].innerHTML = Math.round(values[1])
+				 
+			})
+		}
+
+		
 	}
 
 	function windowScroll(e) {
@@ -194,6 +256,57 @@ function load() {
 			})
 
 			e.preventDefault()
+		}
+
+		if (targetElement.closest('.item-filter__title')) {
+			e.preventDefault()
+			const currentSpollerTitle = targetElement.closest('.item-filter__title')
+			const currentSpoller = currentSpollerTitle.parentElement
+			const currentSpollerBody = targetElement.closest('.item-filter__title').nextElementSibling
+			
+
+			if(!currentSpoller.open) {
+				currentSpoller.open = true
+				const currentSpollerBodyHeight = currentSpollerBody.offsetHeight
+				currentSpoller.classList.add ('item-filter--open')
+				currentSpollerBody.style.cssText = `height: 0; opacity: 0;`
+				currentSpollerBody.offsetHeight 
+				currentSpollerBody.style.cssText = `height: ${currentSpollerBodyHeight}px; opacity: 1;`;
+			} else {
+				const currentSpollerBodyHeight = currentSpollerBody.offsetHeight
+				currentSpoller.classList.remove('item-filter--open')
+				currentSpollerBody.style.cssText = `height: ${currentSpollerBodyHeight}px; opacity: 1;`;
+				currentSpollerBody.offsetHeight
+				currentSpollerBody.style.cssText = `height: 0; opacity: 0;`
+				setTimeout (() => {
+					currentSpoller.open = false
+					currentSpollerBody.style.cssText = ``
+				}, 500)
+			}
+		}
+
+		if (targetElement.closest('.actions-catalog__button-filter')) {
+			const filter = document.querySelector('.filter')
+
+			filter.classList.toggle('filter--open')
+
+			if (filter.classList.contains('filter--open')) {
+				filter.style.cssText = ``
+				const filterHeight = filter.offsetHeight
+				filter.style.cssText = `height: 0;`
+				filter.offsetHeight
+				filter.style.cssText = `height: ${filterHeight}px;`
+
+				setTimeout(() => {
+					filter.style.cssText = ``
+				}, 300);
+			} else {
+				const filterHeight = filter.offsetHeight
+				filter.style.cssText = `height: ${filterHeight}px;`
+				filter.offsetHeight
+				filter.style.cssText = `height: 0;`
+			}
+
 		}
 	}
 

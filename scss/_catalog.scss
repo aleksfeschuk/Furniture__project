@@ -10,7 +10,7 @@
             @include adaptiveValue("padding-top", 36, 20);
             @include adaptiveValue("margin-bottom", 82, 20);
 			display: flex;
-			@include adaptiveValue("gap", 60, 20);
+			@include adaptiveValue("gap", 60, 20, 2, 1422, 1050);
 
 		}
 
@@ -25,6 +25,8 @@
 		&__body {
 			flex-grow: 1;
 		}
+
+
 }
 
 
@@ -79,6 +81,29 @@
             @include adaptiveValue("padding-left", 68, 0)
 		}
 
+
+		&__info {
+
+		}
+
+
+		&__button-filter {
+			background-color: var(--black-1);
+			@include typo("");
+			color: var(--black-8);
+			font-weight: 700;
+			text-transform: uppercase;
+			padding: toRem(10) toRem(20);
+			transition: background-color 0.3s;
+			html:not([data-fls-touch]) & {
+				&:hover {
+					background-color: var(--green);
+				}
+			}
+			@media (width > toEm(1050)) {
+				display: none; 
+			}
+		}
 		// .actions-catalog__info
 
 		
@@ -148,6 +173,7 @@
 }
 
 .select-item {
+	
 	flex-shrink: 0;
 	position: relative;
 	&::before {
@@ -156,10 +182,11 @@
 		top: 50%;
 		translate: 0 -50%;
 		font-size: toRem(12);
-		
+		pointer-events: none;
 	}
 
 	&__body {
+		cursor: pointer;
 		padding: toRem(10) 0;
 		padding-right: toRem(20);
 		appearance: none;
@@ -196,6 +223,16 @@
 
   
 .filter {
+
+		@media (width <= toEm(1050)) {
+			overflow: hidden;
+			transition: 
+				height 0.3s,
+				margin-bottom 0.3s;
+			&--open {
+				margin-bottom: toRem(25)
+			} 
+		}
 
 		// .filter__section
 
@@ -238,11 +275,8 @@
 			padding-right: toRem(35);
 			list-style: none;
 			position: relative;
-			// display: flex;
-			// align-items: center;
-			// justify-content: space-between;
-			// gap: toRem(5);
 			padding-bottom: toRem(11);
+			cursor: pointer;
 			&::marker,
 			&::-webkit-details-marker {
 				display: none;
@@ -265,10 +299,10 @@
 				@include typo("");
 				font-size: toRem(18);
 				overflow: hidden;
-				transition: rotate 0.3s;
+				transition: rotate 0.5s;
 				// height: toRem(2);
 			}
-			[open] & {
+			.item-filter--open & {
 				&::after {
 					rotate: 180deg;
 					content: '\e904';
@@ -280,7 +314,14 @@
 		// .item-filter__body
 
 		&__body {
-			padding-top: toRem(16);
+			overflow: hidden;
+			transition: 
+				height 0.5s,
+				opacity 0.5s,
+				margin-top 0.5s;
+			.item-filter--open & {
+				margin-top: toRem(16);
+			}
 		}
 
 		// .item-filter__list
@@ -294,6 +335,16 @@
 		// .item-filter__item
 
 		&__item {
+			
+		}
+
+		// .item-filter__link
+
+		&__link {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			gap: toRem(5); 
 			@include typo("");
 			transition: color 0.3s;
 			color: var(--black-3);
@@ -308,16 +359,90 @@
 			}
 		}
 
-		// .item-filter__link
-
-		&__link {
+		&__text {
+			@include typo('');
+			color: var(--black-3);
+			p {
+				&:not(:last-child) {
+					margin-bottom: toRem(10)
+				}
+			}
 		}
 
-		// .item-filter__link--active
+		&__price {
 
-		&__link--active {
 		}
 }
+
+.price-filter {
+
+		padding-top: toRem(26);
+
+		// .price-filter__slider
+
+		&__slider {
+			margin-inline: toRem(4);
+			&::before,
+			&::after {
+				content: ""; 
+				position: absolute;
+				width: toRem(4);
+				aspect-ratio: 1;
+				top: 0;
+				background-color: var(--black-7);
+			}
+			&::before {
+				left: toRem(-4);
+			}
+			&::after {
+				right: toRem(-4);
+			}
+		}
+
+		// .price-filter__footer
+
+		&__footer {
+			padding-top: toRem(30);
+			display: flex;
+			gap: toRem(20);
+		}
+
+		// .price-filter__info
+
+		&__info {
+			flex-grow: 1;
+			@include typo('');
+			padding: toRem(8);
+			text-align: center;
+			background-color: var(--black-7);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: toRem(5);
+			span {
+				display: flex;
+				&::before {
+					content: "$"
+				}
+			}
+		}
+
+		// .price-filter__button
+
+		&__button {
+			background-color: var(--black-1);
+			color: var(--black-8);
+			@include typo('');
+			transition: background-color  0.3s;
+			padding: toRem(8) toRem(20);
+			html:not([data-fls-touch]) & {
+				&:hover {
+					background-color: var(--green);
+				}
+			}
+		}
+}
+
 
 
  

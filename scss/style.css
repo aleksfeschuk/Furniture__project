@@ -2173,14 +2173,9 @@ html:not([data-fls-touch]) .body-footer__link:hover {
     gap: 60px;
   }
 }
-@media (min-width: 20em) and (max-width: 88.875em) {
+@media (min-width: 65.625em) and (max-width: 88.875em) {
   .catalog__main {
-    gap: clamp( 20px , 8.3847549909px  +  3.6297640653vw , 60px );
-  }
-}
-@media (max-width: 20em) {
-  .catalog__main {
-    gap: 20px;
+    gap: clamp( 20px , -92.9032258065px  +  10.752688172vw , 60px );
   }
 }
 .catalog__filter {
@@ -2316,6 +2311,24 @@ html:not([data-fls-touch]) .body-footer__link:hover {
     padding-left: 0.000001px;
   }
 }
+.actions-catalog__button-filter {
+  background-color: var(--black-1);
+  line-height: 1.25;
+  font-weight: 500;
+  color: var(--black-8);
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.625rem 1.25rem;
+  transition: background-color 0.3s;
+}
+html:not([data-fls-touch]) .actions-catalog__button-filter:hover {
+  background-color: var(--green);
+}
+@media (width > 65.625em) {
+  .actions-catalog__button-filter {
+    display: none;
+  }
+}
 
 .order-catalog {
   line-height: 1.25;
@@ -2361,8 +2374,10 @@ html:not([data-fls-touch]) .view-catalog__item:hover {
   top: 50%;
   translate: 0 -50%;
   font-size: 0.75rem;
+  pointer-events: none;
 }
 .select-item__body {
+  cursor: pointer;
   padding: 0.625rem 0;
   padding-right: 1.25rem;
   -webkit-appearance: none;
@@ -2383,6 +2398,15 @@ html:not([data-fls-touch]) .view-catalog__item:hover {
   font-weight: 500;
 }
 
+@media (width <= 65.625em) {
+  .filter {
+    overflow: hidden;
+    transition: height 0.3s, margin-bottom 0.3s;
+  }
+  .filter--open {
+    margin-bottom: 1.5625rem;
+  }
+}
 @media (min-width: 88.875em) {
   .filter__section:not(:last-child) {
     margin-bottom: 80px;
@@ -2452,6 +2476,7 @@ html:not([data-fls-touch]) .view-catalog__item:hover {
   list-style: none;
   position: relative;
   padding-bottom: 0.6875rem;
+  cursor: pointer;
 }
 .item-filter__title::marker, .item-filter__title::-webkit-details-marker {
   display: none;
@@ -2475,33 +2500,104 @@ html:not([data-fls-touch]) .view-catalog__item:hover {
   font-weight: 500;
   font-size: 1.125rem;
   overflow: hidden;
-  transition: rotate 0.3s;
+  transition: rotate 0.5s;
 }
-[open] .item-filter__title::after {
+.item-filter--open .item-filter__title::after {
   rotate: 180deg;
   content: "\e904";
 }
 .item-filter__body {
-  padding-top: 1rem;
+  overflow: hidden;
+  transition: height 0.5s, opacity 0.5s, margin-top 0.5s;
+}
+.item-filter--open .item-filter__body {
+  margin-top: 1rem;
 }
 .item-filter__list {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-.item-filter__item {
+.item-filter__link {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.3125rem;
   line-height: 1.25;
   font-weight: 500;
   transition: color 0.3s;
   color: var(--black-3);
 }
-.item-filter__item--active {
+.item-filter__link--active {
   color: var(--black-1);
   font-weight: 700;
 }
-html:not([data-fls-touch]) .item-filter__item:hover {
+html:not([data-fls-touch]) .item-filter__link:hover {
   color: var(--black-1);
 }
+.item-filter__text {
+  line-height: 1.25;
+  font-weight: 500;
+  color: var(--black-3);
+}
+.item-filter__text p:not(:last-child) {
+  margin-bottom: 0.625rem;
+}
+.price-filter {
+  padding-top: 1.625rem;
+}
+.price-filter__slider {
+  margin-inline: 0.25rem;
+}
+.price-filter__slider::before, .price-filter__slider::after {
+  content: "";
+  position: absolute;
+  width: 0.25rem;
+  aspect-ratio: 1;
+  top: 0;
+  background-color: var(--black-7);
+}
+.price-filter__slider::before {
+  left: -0.25rem;
+}
+.price-filter__slider::after {
+  right: -0.25rem;
+}
+.price-filter__footer {
+  padding-top: 1.875rem;
+  display: flex;
+  gap: 1.25rem;
+}
+.price-filter__info {
+  flex-grow: 1;
+  line-height: 1.25;
+  font-weight: 500;
+  padding: 0.5rem;
+  text-align: center;
+  background-color: var(--black-7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3125rem;
+}
+.price-filter__info span {
+  display: flex;
+}
+.price-filter__info span::before {
+  content: "$";
+}
+.price-filter__button {
+  background-color: var(--black-1);
+  color: var(--black-8);
+  line-height: 1.25;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  padding: 0.5rem 1.25rem;
+}
+html:not([data-fls-touch]) .price-filter__button:hover {
+  background-color: var(--green);
+}
+
 body {
   font-family: "Lato", sans-serif;
   font-weight: 500;
