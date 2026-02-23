@@ -140,6 +140,24 @@ function load() {
 				} 
 			});
 		}
+
+		const productMainSlider = document.querySelector('.main-rpoduct') 
+		const productPreviewsSlider = document.querySelector('.previews-product')
+		if (productMainSlider && productPreviewsSlider) {
+			const sliderProductPreviews  = new Swiper(productPreviewsSlider , {
+				// loop: true, 
+				sliderPerView: "auto",
+				spaceBetween: 12, 
+			}); 
+			const sliderProductMain = new Swiper(productMainSlider , {
+				// loop: true, 
+				sliderPerView: 1,
+				thumbs: {
+					swiper: sliderProductPreviews,
+				}, 
+			});
+			
+		}
 	}
 
 	function initNoUiSlider() {
