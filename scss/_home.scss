@@ -320,6 +320,13 @@
                   @include adaptiveValue("margin-bottom", 36, 20);
 		}
 
+            &__subtitle {
+                  text-align: center;
+                  @include typo("");
+                  font-weight: 700;
+                  @include adaptiveValue("margin-bottom", 72, 25);
+            }
+
 		// .products-featured__filter
 
 		&__filter {

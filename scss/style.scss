@@ -50,10 +50,10 @@ body {
 
 [class*="--sections"] {
 	> *:not([class*="--nomargin"]) {
-			@include adaptiveValue("margin-bottom", 82, 20)
+			@include adaptiveValue("margin-bottom", 82, 25)
 	}
 	> *:not([class*="--nopadding"]) {
-			@include adaptiveValue("padding-top", 82, 20)
+			@include adaptiveValue("padding-top", 82, 25)
 	}
 }	
 

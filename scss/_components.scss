@@ -264,11 +264,17 @@ a.sale-element {
 
 		&__list {
 			display: flex;
+			@media(width <= toEm(450)) {
+				overflow: auto;
+				margin-inline: toRem(-15);
+				padding-inline: toRem(15);
+			}
 		}
 
 		// .breadcrumbs__item
 
 		&__item {
+			flex-shrink: 0;
 			color: var(--black-3);
 			@include typo("");
 			display: flex;
