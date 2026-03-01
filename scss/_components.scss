@@ -308,77 +308,90 @@ a.sale-element {
 		// .sale__container
 
 		&__container {
-                  background-color: #fff;
+                //   background-color: #fff;
 		}
 
 
-            &__wrapper {
-                  background-color: var(--black-7);
-                  @include adaptiveValue("padding-inline", 80, 30, 0, 1422, 768);
-                  @media (width < toEm(480)) {
-                        padding-inline: toRem(15)
-                  }
+			&__wrapper {
+				
+                background-color: var(--black-7);
+				&--dark {
+					background-color: var(--darkgray);
+				}
+				@include adaptiveValue("padding-inline", 80, 30, 0, 1422, 768);
+				@media (width < toEm(480)) {
+					padding-inline: toRem(15)
+				}
 
 
-                  display: flex;
-                  gap: toRem(20);
+				display: flex;
+				gap: toRem(20);
 
-                  @media (width < toEm(768)) {
-                        flex-direction: column;
-                  }
+				@media (width < toEm(768)) {
+					flex-direction: column;
+				}
 
-                  @media (width < toEm(480)) {
-                        margin-inline: toRem(-15);
-                  }
+				@media (width < toEm(480)) {
+					margin-inline: toRem(-15);
+				}
 
             }
 		// .sale__body
 
 		&__body {
-                  @media (width > toEm(768)) {
-                        flex-basis: toRem(350);
-                  }
-                  display: flex;
-                  flex-direction: column;
-                  @include adaptiveValue("padding-top", 68, 20, 2, 1422, 768);
-                  @include adaptiveValue("padding-bottom", 78, 20, 2, 1422, 768);
+			@media (width > toEm(768)) {
+				flex-basis: toRem(350);
+			}
+			display: flex;
+			flex-direction: column;
+			@include adaptiveValue("padding-top", 68, 20, 2, 1422, 768);
+			@include adaptiveValue("padding-bottom", 78, 20, 2, 1422, 768);
 
-                  @media (width < toEm(768)) {
-                        order: 2;  
-                  }
+			@media (width < toEm(768)) {
+				order: 2;  
+			}
 		}
 
-            &__main {
-                  flex-grow: 1;
-                  &:not(:last-child) {
-                        @include adaptiveValue("margin-bottom ", 36, 20);
-                  }
-            }
+		&__main {
+			flex-grow: 1;
+			&:not(:last-child) {
+				@include adaptiveValue("margin-bottom ", 36, 20);
+			}
+		}
+
+		&__logo {
+			&:not(:last-child) {
+				margin-bottom: toRem(16);
+			}
+		}
 
 		// .sale__title
 
 		&__title {
-                  @include typo('h1');
-                  &:not(:last-child) {
-                        margin-bottom: toRem(16);
-                  }
+			@include typo('h1');
+			&:not(:last-child) {
+				margin-bottom: toRem(16);
+			}
+		}
+
+		&__subtitle {
 		}
 
 		// .sale__link-title
 
 		&__link-title {
-                  transition: color 0.3s;
-                  html:not([data-fls-touch]) & {
-                        &:hover {
-                              color: var(--green);
-                        }
-                  }
+			transition: color 0.3s;
+			html:not([data-fls-touch]) & {
+				&:hover {
+						color: var(--green);
+				}
+			}
 		}
 
 		// .sale__rating
 
 		&__rating {
-                  justify-content: flex-start;
+			justify-content: flex-start;
                   
 		}
 
@@ -390,14 +403,14 @@ a.sale-element {
 		// .sale__link-image
 
 		&__link-image {
-                  flex-grow: 1; 
-                  text-align: center;
-                  display: flex;
-                  justify-content: center;
+			flex-grow: 1; 
+			text-align: center;
+			display: flex;
+			justify-content: center;
 
-                  @media (width < toEm(768)) {
-                        order: 1;  
-                  }
+			@media (width < toEm(768)) {
+				order: 1;  
+			}
 		}
 
 		// .sale__picture
@@ -405,59 +418,66 @@ a.sale-element {
 		&__picture { 
                   @media (width > toEm(768)) {
                         margin-bottom: toRem(-95);
+						&--middle {
+							margin-bottom: toRem(-50);
+						}
                         &--mini {
                               margin-bottom: toRem(-30);
                         }
                   }
-                  &:has(.sale__image--center) {
-                        margin-bottom: 0;
-                        @include adaptiveValue("padding-top", 68, 20, 0, 1422, 768);
-                        @include adaptiveValue("padding-bottom", 78, 20, 2, 1422, 768);
-                  }
+				&:has(.sale__image--bottom) {
+					@include adaptiveValue("padding-top", 68, 20, 0, 1422, 768);
+				}
+				&:has(.sale__image--center) {
+					margin-bottom: 0;
+					@include adaptiveValue("padding-top", 68, 20, 0, 1422, 768);
+					@include adaptiveValue("padding-bottom", 78, 20, 2, 1422, 768);
+				}
                   
 		}
 
 		// .sale__image
 
 		&__image {
-                  width: 100%;
-                  height: 100%;
-                  object-fit: contain;
-                  &--center {
-                        object-position: center;
-                  }
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+				object-position: top;
+				&--center {
+					object-position: center;
+				}
 		}
 
 		// .sale__content
 
 		&__content {
-                  @include adaptiveValue("padding-top", 68, 20, 2, 1422, 768);
-                  @include adaptiveValue("padding-bottom", 78, 20, 0, 1422, 768);
-                  @media (width < toEm(768)) {
-                        order: 3;  
-                  }
-                  @media (width > toEm(768)) {
-                        flex-basis: toRem(350);
-                        text-align: right;
-                        align-items: flex-end;
-                  }   
-                  
-                  display: flex;
-                  flex-direction: column;
-                  gap: toRem(25); 
+				@include adaptiveValue("padding-top", 68, 20, 2, 1422, 768);
+				@include adaptiveValue("padding-bottom", 78, 20, 0, 1422, 768);
+				@media (width < toEm(768)) {
+					order: 3;  
+				}
+				@media (width > toEm(768)) {
+					flex-basis: toRem(350);
+					text-align: right;
+					align-items: flex-end;
+				}   
+				
+				display: flex;
+				flex-direction: column;
+				gap: toRem(25); 
 		}
 
 		// .sale__text
 
 		&__text {
-                  flex-grow: 1;
-                  @include typo('');
-                  color: var(--black-3);
-                  p {
-                        &:not(:last-child) {
-                              margin-bottom: toRem(10);
-                        }  
-                  }
+			flex-grow: 1;
+			@include typo('');
+			color: var(--black-3);
+			p {
+				&:not(:last-child) {
+					margin-bottom: toRem(10);
+				}  
+			}
 		}
 
 		// .sale__button
@@ -482,88 +502,248 @@ a.sale-element {
 		// .price-sale__price
 
 		&__price {
-                  display: flex;
-                  align-items: center;
-                  gap: toRem(16);
+			display: flex;
+			align-items: center;
+			gap: toRem(16);
 		}
 
 		// .price-sale__value
 
 		&__value {
-                  @include typo('h1');
+			@include typo('h1');
                   
 		}
 
 		// .price-sale__sale
 
 		&__sale {
-                  @include typo('');
-                  background-color: var(--red);
-                  padding: toRem(4) toRem(8);
-                  font-weight: 700;
-                  color: var(--black-8);
-                  border-radius: toRem(4);
+			@include typo('');
+			background-color: var(--red);
+			padding: toRem(4) toRem(8);
+			font-weight: 700;
+			color: var(--black-8);
+			border-radius: toRem(4);
 		}
+}
+
+.promo {
+	// .promo__container
+	&__container {
+	}
+	// .promo__wrapper
+	&__wrapper {
+		background-color: var(--darkgray);
+		@include adaptiveValue("padding-inline", 80, 20, 0, 1422, 768);
+		@media (width < toEm(480)) {
+			padding-inline: toRem(15);
+		}
+
+		display: flex;
+		gap: toRem(30);
+
+		@media (width < toEm(768)) {
+			flex-direction: column;
+		}
+		@media (width < toEm(480)) {
+			margin-inline: toRem(-15);
+		}
+	}
+	// .promo__body
+	&__body {
+		@media (width > toEm(768)) {
+			flex-basis: toRem(350);
+		}
+		display: flex;
+		flex-direction: column;
+		@include adaptiveValue("padding-top", 68, 20, 2, 1422, 768);
+		@include adaptiveValue("padding-bottom", 78, 20, 2, 1422, 768);
+
+		@media (width < toEm(768)) {
+			order: 2;
+		}
+	}
+	// .promo__logo
+	&__logo {
+		&:not(:last-child) {
+			margin-bottom: toRem(16);
+		}
+	}
+	// .promo__title
+	&__title {
+		@include typo("h1");
+		&:not(:last-child) {
+			margin-bottom: toRem(16);
+		}
+	}
+	// .promo__subtitle
+	&__subtitle {
+	}
+	// .promo__link-title
+	&__link-title {
+		transition: color 0.3s;
+		html:not([data-fls-touch]) & {
+			&:hover {
+				color: var(--green);
+			}
+		}
+	}
+	// .promo__rating
+	&__rating {
+		justify-content: flex-start;
+	}
+	// .promo__price
+	&__price {
+	}
+	// .promo__link-image
+	&__link-image {
+		flex-grow: 1;
+		text-align: center;
+
+		display: flex;
+		justify-content: center;
+
+		@media (width < toEm(768)) {
+			order: 1;
+		}
+	}
+	// .promo__picture
+	&__picture {
+		@media (width > toEm(768)) {
+			margin-bottom: toRem(-95);
+			&--middle {
+				margin-bottom: toRem(-50);
+			}
+			&--mini {
+				margin-bottom: toRem(-30);
+			}
+		}
+		&:has(.promo__image--bottom) {
+			@include adaptiveValue("padding-top", 68, 20, 0, 1422, 768);
+		}
+		&:has(.promo__image--center) {
+			margin-bottom: 0;
+			@include adaptiveValue("padding-top", 68, 20, 0, 1422, 768);
+			@include adaptiveValue("padding-bottom", 78, 20, 2, 1422, 768);
+		}
+	}
+	// .promo__image
+	&__image {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		object-position: top;
+		&--center {
+			object-position: center;
+		}
+	}
+	// .promo__content
+	&__content {
+		@include adaptiveValue("padding-top", 68, 20, 2, 1422, 768);
+		@include adaptiveValue("padding-bottom", 78, 20, 0, 1422, 768);
+		@media (width < toEm(768)) {
+			order: 3;
+		}
+		@media (width > toEm(768)) {
+			flex-basis: toRem(350);
+		}
+		display: flex;
+		flex-direction: column;
+		gap: toRem(25);
+	}
+	// .promo__list
+	&__list {
+	}
+}
+
+.body-promo {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	@include adaptiveValue("gap", 40, 20);
+	// .body-promo __logo
+	&__logo {
+	}
+	// .body-promo __title
+	&__title {
+		@include typo("h2-24");
+	}
+	// .body-promo __link-title
+	&__link-title {
+		transition: color 0.3s;
+		html:not([data-fls-touch]) & {
+			&:hover {
+				color: var(--green);
+			}
+		}
+	}
+	// .body-promo__button
+	&__button {
+		@media (width < toEm(768)) {
+			align-self: stretch;
+		}
+	}
+}
+
+.list-promo {
+	display: flex;
+	flex-direction: column;
+	@include adaptiveValue("gap", 48, 20);
+	// .list-promo__item
+	&__item {
+		display: flex;
+		align-items: flex-start;
+		gap: toRem(28);
+	}
+	// .list-promo__icon
+	&__icon {
+	}
+	// .list-promo__text
+	&__text {
+		@include typo("");
+		color: var(--black-3);
+	}
 }
 
 
 .pagging {
-
-		// .pagging__list
-
-		&__list {
-			display: flex;
-			align-items: center;
-			gap:  toRem(8)
-		}
-
-		// .pagging__item
-
-		&__item {
-		}
-
-		// .pagging__link
-
-		&__link {
-			aspect-ratio: 1;
-			width: toRem(40); 
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			@include typo("");
-			transition: all 0.3s; 
-			background-color: var(--black-7);
-			
-		}
-
-		// .pagging__link--current
-
-		&__link--current {
-			color: var(--black-8); 
+	// .pagging__list
+	&__list {
+		display: flex;
+		align-items: center;
+		gap: toRem(8);
+	}
+	// .pagging__item
+	&__item {
+	}
+	// .pagging__link
+	&__link {
+		aspect-ratio: 1;
+		width: toRem(40);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include typo("");
+		transition: all 0.3s;
+		background-color: var(--black-7);
+		&--current {
+			color: var(--black-8);
 			background-color: var(--black-1);
 		}
-
-		// .pagging__link--left-arrow
-
-		&__link--left-arrow {
+		// .pagging__link--icon-select-arrow
+		&--icon-select-arrow {
+		}
+		&--left-arrow {
 			rotate: 90deg;
 		}
-
-		// .pagging__link--icon-select-arrow
-
-		&__link--icon-select-arrow {
-		}
-
-		// .pagging__link--right-arrow
-
-		&__link--right-arrow {
+		&--right-arrow {
 			rotate: -90deg;
 		}
-
 		html:not([data-fls-touch]) & {
 			&:hover {
-				color: var(--black-8); 
+				color: var(--black-8);
 				background-color: var(--black-1);
 			}
 		}
+	}
 }

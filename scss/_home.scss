@@ -44,10 +44,10 @@
 		// .hero__container
 
 		&__container {
-            min-height: 100%;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
+                  min-height: 100%;
+                  display: flex;
+                  justify-content: flex-end;
+                  align-items: center;
 
             // flex-direction: column;
 		}
@@ -499,11 +499,6 @@
                   flex-basis: toRem(44); 
             }
       }
-
-      
-
-      
-       
 }
  
 .item-review {
@@ -544,8 +539,8 @@
             font-style: italic; 
             p {
                   &:not(:last-child) {
-                  margin-bottom: toRem(10);
-            }
+                        margin-bottom: toRem(10);
+                  }
             }
 
             &:not(:last-child) {
@@ -561,11 +556,11 @@
             align-items: center;
             gap: toRem(6);
             &::before {
-                  content: '-';
+                  content: "-";
             }
 
             &::after {
-                  content: '-';
+                  content: "-";
             }
       }
 }
